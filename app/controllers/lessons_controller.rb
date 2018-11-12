@@ -9,6 +9,7 @@ class LessonsController < ApplicationController
 
   def new
     @lesson = Lesson.new
+    @subjects = Subject.all
   end
 
   def create
@@ -35,5 +36,10 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
     redirect_to lessons_path
+  end
+
+  def lesson_params
+    params.require(:lesson).permit(:start_time, :start_date, :duration,
+    :price, :address, :description)
   end
 end
