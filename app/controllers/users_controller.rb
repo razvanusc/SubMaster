@@ -10,11 +10,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    if @user.save
-      redirect_to user_path(@user)
-    else
-      render :show
-    end
+    redirect_to user_path(@user)
   end
 
   def user_params
