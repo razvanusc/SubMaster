@@ -1,19 +1,24 @@
 // Specific CSS for your home-page
 body {
-  margin: auto;
-  background-color: #5D8196;
-
-}
-.container {
-  margin: 0, auto;
+//   margin: auto;
+  background-color: #EEEEEE;
 }
 
-h1, h2, p {
-  color: white;
-}
+.jumbo-img {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),image-url("gym") top;
+  background-size: cover;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-.img-cover{
-  margin: 20px 0 50px;
+  h1, p {
+    color: white;
+  }
+  p {
+    opacity: 0.6;
+  }
 }
 
 .app-btn {
@@ -25,22 +30,26 @@ h1, h2, p {
 .sign-button {
   display: inline-block;
   text-align: center;
-  background-color: white;
+  background-color: #5D8196;
   font-weight: bold;
   text-transform: uppercase;
-  color:  #0D1A24;
+  color:  white;
   padding: 10px 20px;
   width: 300px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   border-radius: 3px;
-
 }
 
 .sign-button:hover {
   text-decoration: none;
 }
 
-.home-text {
+.home-body {
   padding: 10px;
-
+  border-top: 1px solid #5D8196;
 }
+
+.home-img {
+  width: 25vh;
+}
+
