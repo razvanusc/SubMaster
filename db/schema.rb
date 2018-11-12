@@ -10,10 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_134616) do
+ActiveRecord::Schema.define(version: 2018_11_12_145720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_bookings_on_lesson_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "start_date"
+    t.string "status"
+    t.integer "duration"
+    t.integer "price"
+    t.string "address"
+    t.string "description"
+    t.bigint "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_lessons_on_subject_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_subjects", force: :cascade do |t|
+    t.bigint "subject_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_user_subjects_on_subject_id"
+    t.index ["user_id"], name: "index_user_subjects_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +60,24 @@ ActiveRecord::Schema.define(version: 2018_11_12_134616) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.string "bio"
+    t.string "website_url"
+    t.string "facebook_url"
+    t.string "instagram_url"
+    t.boolean "available"
+    t.string "address"
+    t.datetime "weekday_preference"
+    t.datetime "daytime_preference"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "lessons"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "lessons", "subjects"
+  add_foreign_key "user_subjects", "subjects"
+  add_foreign_key "user_subjects", "users"
 end
