@@ -1,1 +1,46 @@
 // Specific CSS for your home-page
+body {
+  margin: auto;
+  background-color: #5D8196;
+
+}
+.container {
+  margin: 0, auto;
+}
+
+h1, h2, p {
+  color: white;
+}
+
+.img-cover{
+  margin: 20px 0 50px;
+}
+
+.app-btn {
+  margin-bottom: 20px;
+  width: 250px;
+  height: 40px;
+}
+
+.sign-button {
+  display: inline-block;
+  text-align: center;
+  background-color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  color:  #0D1A24;
+  padding: 10px 20px;
+  width: 300px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+
+}
+
+.sign-button:hover {
+  text-decoration: none;
+}
+
+.home-text {
+  padding: 10px;
+
+}
