@@ -1,9 +1,14 @@
+<ul>
 <% @lessons.each do |lesson| %>
-  <%= lesson.status %>
-  <%= lesson.description %>
+  <li><%= lesson.status %>
+  <%= link_to "#{lesson.description}",  lesson_path(lesson)%>
   <%= lesson.price %>
   <%= lesson.start_time.strftime("%Y-%m-%d (%H:%M)") %>
   <%= lesson.start_date.strftime("%Y-%m-%d (%H:%M)") %>
   <%= lesson.duration %>
   <%= lesson.address %>
+</li>
 <% end %>
+</ul>
+
+<%= link_to "Create new class", new_lesson_path%>

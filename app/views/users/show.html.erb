@@ -13,7 +13,14 @@
     <p><%= @user.website_url%></p>
     <p><%= @user.facebook_url%></p>
     <p><%= @user.instagram_url%></p>
-    <p><%= @user.available%></p>
+    <p>Available:
+      <% if @user.available%>
+        <%= "Yes" %>
+      <% else %>
+        <%= "No" %>
+      <% end %>
+    </p>
+
     <p><%= @user.address%></p>
     <p><%= @user.weekday_preference%></p>
     <p><%= @user.daytime_preference%></p>
