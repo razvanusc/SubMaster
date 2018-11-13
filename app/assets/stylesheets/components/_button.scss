@@ -1,0 +1,15 @@
+.home-button {
+  display: inline-block;
+  text-align: center;
+  background-color: white;
+  text-transform: uppercase;
+  color:  $darkblue;
+  padding: 10px 20px;
+  width: 200px;
+  margin-bottom: 25px;
+  border-radius: 3px;
+}
+
+.home-button:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,12 @@
+<%= simple_form_for(@lesson) do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :start_date %>
+  <%= f.input :duration %>
+  <%= f.input :price %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :subject, collection: @subjects %>
+
+  <%= f.submit %>
+<% end %>
+

@@ -1,4 +1,40 @@
 // Specific CSS for your home-page
-body {
-  font-family: "Raleway";
+.home-wrapper {
+  background-color: $darkblue;
+  color: white;
 }
+//   margin: auto;
+
+.jumbo-img {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),image-url("gym") top;
+  background-size: cover;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1, p {
+    color: white;
+  }
+  p {
+    opacity: 0.6;
+  }
+}
+
+.app-btn {
+  margin-bottom: 20px;
+  width: 250px;
+  height: 40px;
+}
+
+
+.home-body {
+  padding: 10px;
+  border-top: 1px solid #5D8196;
+}
+
+.home-img {
+  width: 25vh;
+}
+
