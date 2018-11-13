@@ -10,3 +10,7 @@
 <p><%= @user.address%></p>
 <p><%= @user.weekday_preference%></p>
 <p><%= @user.daytime_preference%></p>
+
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
