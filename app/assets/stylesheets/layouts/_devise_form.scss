@@ -1,0 +1,52 @@
+.wrapper-light{
+  background-color: $darkblue;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.container-fluid {
+  max-width: 375px;
+}
+
+label {
+  font-weight: lighter;
+}
+
+.form-btn {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+
+  color: white;
+
+}
+
+.form-btn:hover {
+  text-decoration: none;
+}
+
+.login-btn {
+  display: inline-block;
+  text-align: center;
+  background-color: $lightblue;
+  text-transform: uppercase;
+  color:  white;
+  padding: 10px 20px;
+  width: 200px;
+  margin-bottom: 25px;
+  border-radius: 3px;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+}
+
+a:hover {
+  text-decoration: none !important;
+  color: $bright-blue !important;
+}
