@@ -2,8 +2,8 @@
   <%= lesson.status %>
   <%= lesson.description %>
   <%= lesson.price %>
-  <%= lesson.start_time %>
-  <%= lesson.start_date %>
+  <%= lesson.start_time.strftime("%Y-%m-%d (%H:%M)") %>
+  <%= lesson.start_date.strftime("%Y-%m-%d (%H:%M)") %>
   <%= lesson.duration %>
   <%= lesson.address %>
 <% end %>
