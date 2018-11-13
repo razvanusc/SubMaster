@@ -1,0 +1,6 @@
+<h1>Book your class: <%= @lesson.description %></h1>
+<div class="devise-input-form">
+   <%= simple_form_for([@lesson, @booking]) do |f| %>
+     <%= f.submit %>
+   <% end %>
+</div>
