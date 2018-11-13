@@ -1,6 +1,10 @@
 class LessonsController < ApplicationController
   def index
-    @lessons = Lesson.all
+    if params[:show]
+      @lessons = Lesson.where(status: params[:show])
+    else
+      @lessons = Lesson.all
+    end
   end
 
   def show

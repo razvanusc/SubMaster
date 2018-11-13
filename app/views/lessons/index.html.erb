@@ -12,3 +12,7 @@
 </ul>
 
 <%= link_to "Create new class", new_lesson_path%>
+
+<%= link_to "Pending", lessons_path(@lesson, show:"Pending")%>
+<%= link_to "Confirmed", lessons_path(@lesson, show:"Confirmed")%>
+<%= link_to "Cancelled", lessons_path(@lesson, show:"Cancelled")%>
