@@ -8,7 +8,8 @@
 puts "Destroying all..."
 Lesson.destroy_all
 User.destroy_all
-Subject.delete_all
+Subject.destroy_all
+Booking.destroy_all
 
 puts "Seeding..."
 
