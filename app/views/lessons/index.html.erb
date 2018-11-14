@@ -1,4 +1,4 @@
-<%= render 'shared/navbar', title:"Submaster"%>
+<%= render 'shared/navbar'%>
 <div class="wrapper-light">
   <div class="container">
     <div class="row">
@@ -11,6 +11,8 @@
      <%= link_to "Request a sub", lessons_path, class: "dark-button"%>
     </div>
   </div>
+
+
 
   <ul>
   <% @lessons.each do |lesson| %>
@@ -31,5 +33,6 @@
   <%= link_to "Confirmed", lessons_path(@lesson, show:"Confirmed")%>
   <%= link_to "Cancelled", lessons_path(@lesson, show:"Cancelled")%>
 
+    </div>
   </div>
 </div>

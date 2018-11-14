@@ -4,6 +4,32 @@ body{
   flex-direction: column;
 }
 
-.application-container {
+.application-container-light {
   flex-grow: 1;
+  background-color: $light-gray;
 }
+
+.application-container-dark {
+  flex-grow: 1;
+  background-color: $darkblue;
+}
+
+// fonts
+
+h1 {
+font-size: 40px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+ font-size: 16px;
+}
+
+// p for cards: 8px;
