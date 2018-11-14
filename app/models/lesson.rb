@@ -3,6 +3,8 @@ class Lesson < ApplicationRecord
   belongs_to :subject
   has_many :bookings, dependent: :delete_all
 
+  enum status: { Open: 0, Pending: 1, Cancelled: 2, Confirmed: 3, Archived: 4 }
+
   def bookings_for_lessons
     #find all the boats and the bookings belonging to the boats
     # boats.map do | boat|

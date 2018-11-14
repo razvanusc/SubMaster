@@ -1,16 +1,27 @@
 class LessonsController < ApplicationController
   def index
-    # if params[:show]
-    #   @lessons = Lesson.where(status: params[:show])
-    # else
-    #   @lessons = Lesson.all
-    #     if user_id = params[:user_id]
-    #   @user = User.find(user_id)
-    #   @lessons = policy_scope(Lesson).where(user: @user)
-    # else
-    #   @lessons = policy_scope(Lesson)
-    # end
     @lessons = Lesson.all
+    if params[:user_id]
+      if params[:show]
+        @user = User.find(params[:user_id])
+        @lessons = Lesson.where(user: @user)
+        @lessons = @lessons.where(status: params[:show])
+      else
+        @user = User.find(params[:user_id])
+        @lessons = Lesson.where(user: @user)
+        @lessons = @lessons
+      end
+    else
+      if params[:show]
+        @user = current_user
+        @lessons = Lesson.where.not(user: @user)
+        @lessons = @lessons.where(status: params[:show])
+      else
+        @user = current_user
+        @lessons = Lesson.where.not(user: @user)
+        @lessons = @lessons
+      end
+    end
   end
 
   def show
@@ -25,6 +36,7 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.new(lesson_params)
     @lesson.user = current_user
+    @lesson.status = "Open"
     if @lesson.save
       redirect_to lesson_path(@lesson)
     else
