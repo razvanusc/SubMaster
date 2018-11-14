@@ -3,9 +3,14 @@
   color: white;
   // height: 95vh;
   h2 {
-    font-weight: lighter;
+    font-weight: 300;
+    font-size: 40px;
+    color: #FFFFFF;
+    margin-top: 67px;
+    margin-bottom: 12px;
   }
 }
+
 
 h2 {
   text-align: center;
@@ -17,7 +22,14 @@ h2 {
 }
 
 label {
-  font-weight: lighter;
+  font-size: 16px;
+  font-weight: 400;
+  color: #C4C4C4;
+}
+
+.text-muted {
+  color: #C4C4C4;
+  font-size: 12px;
 }
 
 .form-control {
@@ -30,11 +42,13 @@ label {
  color: #FFFFFF;
  background-color: transparent;
  background-image: none;
- border-bottom: 2.5px dotted #FFFFFF;
+ border-radius: none;
+ //border-style: 2px dotted #FFFFFF;
+ border-bottom: 2px dotted #FFFFFF;
  border-top: 0px transparent;
  border-right: 0px transparent;
  border-left: 0px transparent;
- }
+}
 
 .form-btn {
   display: flex;
@@ -50,6 +64,8 @@ label {
 a {
   display: flex;
   justify-content: center;
+  color: #C4C4C4;
+  font-size: 15px;
 }
 
 a:hover {
