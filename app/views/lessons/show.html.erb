@@ -1,4 +1,8 @@
 <%= render 'shared/navbar' %>
+<div class="wrapper-light">
+  <div class="container">
+    <div class="row">
+
   <ul>
     <li>
   <%= @lesson.status %>
@@ -11,3 +15,7 @@
   <%= link_to "Book this boat", new_lesson_booking_path(@lesson)%>
   </li>
 </ul>
+
+    </div>
+  </div>
+</div>
