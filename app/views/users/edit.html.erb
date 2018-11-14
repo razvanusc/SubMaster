@@ -1,16 +1,25 @@
-<%= simple_form_for(@user) do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :phone_number %>
-  <%= f.input :bio %>
-  <%= f.input :website_url %>
-  <%= f.input :facebook_url %>
-  <%= f.input :instagram_url %>
-  <%= f.input :available %>
-  <%= f.input :address %>
-  <%= f.input :weekday_preference %>
-  <%= f.input :daytime_preference %>
-  <%= f.submit %>
-<% end %>
+<%= render 'shared/navbar' %>
+<div class="wrapper-dark">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+          <%= simple_form_for(@user) do |f| %>
+            <%= f.input :first_name %>
+            <%= f.input :last_name %>
+            <%= f.input :email %>
+            <%= f.input :password %>
+            <%= f.input :phone_number %>
+            <%= f.input :bio %>
+            <%= f.input :website_url %>
+            <%= f.input :facebook_url %>
+            <%= f.input :instagram_url %>
+            <%= f.input :available %>
+            <%= f.input :address %>
+            <%= f.input :weekday_preference %>
+            <%= f.input :daytime_preference %>
+            <%= f.submit class: "login-btn" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
