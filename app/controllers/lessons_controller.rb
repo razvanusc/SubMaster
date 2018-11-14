@@ -1,10 +1,16 @@
 class LessonsController < ApplicationController
   def index
-    if params[:show]
-      @lessons = Lesson.where(status: params[:show])
-    else
-      @lessons = Lesson.all
-    end
+    # if params[:show]
+    #   @lessons = Lesson.where(status: params[:show])
+    # else
+    #   @lessons = Lesson.all
+    #     if user_id = params[:user_id]
+    #   @user = User.find(user_id)
+    #   @lessons = policy_scope(Lesson).where(user: @user)
+    # else
+    #   @lessons = policy_scope(Lesson)
+    # end
+    @lessons = Lesson.all
   end
 
   def show

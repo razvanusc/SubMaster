@@ -10,4 +10,8 @@ class Lesson < ApplicationRecord
     # end.flatten
     Booking.all.joins(:lesson).where('lessons.user_id = ?', id)
   end
+
+  # def status
+  #   bookings.any? {|b| b.status == 'Confirmed'} ? "Confirmed" : "Pending"
+  # end
 end

@@ -1,18 +1,46 @@
-<ul>
-<% @lessons.each do |lesson| %>
-  <li><%= lesson.status %>
-  <%= link_to "#{lesson.description}",  lesson_path(lesson)%>
-  <%= lesson.price %>
-  <%= lesson.start_time.strftime("%Y-%m-%d (%H:%M)") %>
-  <%= lesson.start_date.strftime("%Y-%m-%d (%H:%M)") %>
-  <%= lesson.duration %>
-  <%= lesson.address %>
-</li>
-<% end %>
-</ul>
+<div class="wrapper-light">
+  <div class="container">
+    
+    <div class="row">
+     <div class="col-xs-6 text-center">
+      <%= link_to "Sub a class", lessons_path, class: "dark-button"%>
+      </div>
+      <div class="col-xs-6 text-center">
+       <%= link_to "Request a sub", lessons_path, class: "dark-button"%>
+     </div>
+    </div>
+    
+      <%= link_to "Pending", bookings_path(@booking, show:"Pending")%>
+      <%= link_to "Confirmed", bookings_path(@booking, show:"Confirmed")%>
+      <%= link_to "Cancelled", bookings_path(@booking, show:"Cancelled")%>
 
-<%= link_to "Create new class", new_lesson_path%>
+      if
+      <ul>
+      <% @lessons.each do |lesson| %>
+        <li><%= lesson.status %>
+        <%= link_to "#{lesson.description}",  lesson_path(lesson)%>
+        <%= lesson.price %>
+        <%= lesson.start_time.strftime("%Y-%m-%d (%H:%M)") %>
+        <%= lesson.start_date.strftime("%Y-%m-%d (%H:%M)") %>
+        <%= lesson.duration %>
+        <%= lesson.address %>
+      </li>
+      <% end %>
+      </ul>
 
-<%= link_to "Pending", lessons_path(@lesson, show:"Pending")%>
-<%= link_to "Confirmed", lessons_path(@lesson, show:"Confirmed")%>
-<%= link_to "Cancelled", lessons_path(@lesson, show:"Cancelled")%>
+      <ul>
+      <% @lessons.each do |lesson| %>
+        <li><%= lesson.status %>
+        <%= link_to "#{lesson.description}",  lesson_path(lesson)%>
+        <%= lesson.price %>
+        <%= lesson.start_time.strftime("%Y-%m-%d (%H:%M)") %>
+        <%= lesson.start_date.strftime("%Y-%m-%d (%H:%M)") %>
+        <%= lesson.duration %>
+        <%= lesson.address %>
+      </li>
+      <% end %>
+      </ul>
+
+      <%= link_to "Create new class", new_lesson_path%>
+  </div>
+</div>
