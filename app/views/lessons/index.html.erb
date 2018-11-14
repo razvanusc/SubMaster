@@ -1,3 +1,22 @@
+<%= link_to "Pending", bookings_path(@booking, show:"Pending")%>
+<%= link_to "Confirmed", bookings_path(@booking, show:"Confirmed")%>
+<%= link_to "Cancelled", bookings_path(@booking, show:"Cancelled")%>
+
+if
+<ul>
+<% @lessons.each do |lesson| %>
+  <li><%= lesson.status %>
+  <%= link_to "#{lesson.description}",  lesson_path(lesson)%>
+  <%= lesson.price %>
+  <%= lesson.start_time.strftime("%Y-%m-%d (%H:%M)") %>
+  <%= lesson.start_date.strftime("%Y-%m-%d (%H:%M)") %>
+  <%= lesson.duration %>
+  <%= lesson.address %>
+</li>
+<% end %>
+</ul>
+
+
 <ul>
 <% @lessons.each do |lesson| %>
   <li><%= lesson.status %>
@@ -12,7 +31,3 @@
 </ul>
 
 <%= link_to "Create new class", new_lesson_path%>
-
-<%= link_to "Pending", lessons_path(@lesson, show:"Pending")%>
-<%= link_to "Confirmed", lessons_path(@lesson, show:"Confirmed")%>
-<%= link_to "Cancelled", lessons_path(@lesson, show:"Cancelled")%>

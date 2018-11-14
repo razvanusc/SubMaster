@@ -1,6 +1,18 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
+
+    if params[:show]
+      @bookings = @bookings.where(status: params[:show])
+    else
+      @bookings = @bookings
+    end
+
+    if params[:show]
+      @bookings_for_lessons = @bookings_for_lessons.where(status: params[:show])
+    else
+      @bookings_for_lessons = @bookings_for_lessons
+    end
   end
 
   def show
@@ -19,7 +31,6 @@ class BookingsController < ApplicationController
     @booking.lesson = @lesson
     @booking.status = "Pending"
     if @booking.save
-      @lesson.update! status: "Pending"
       redirect_to booking_path(@booking)
     else
       render :new
@@ -29,8 +40,7 @@ class BookingsController < ApplicationController
   def confirm
     @booking = Booking.find(params[:id])
     authorize @booking
-    @booking.update! status: "Confirmed"
-    @lesson.update! status: "Confirmed"
+    confirm!
     redirect_to user_path(current_user)
   end
 
@@ -40,9 +50,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @lesson = Lesson.find(params[:id])
     @booking.update(booking_params)
-    @lesson.status = @booking.status
     redirect_to bookings_path
   end
 
