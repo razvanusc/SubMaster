@@ -3,6 +3,11 @@ class Lesson < ApplicationRecord
   belongs_to :subject
   has_many :bookings, dependent: :delete_all
 
+  validates :price, presence: true
+  validates :description, presence: true
+  validates :address, presence: true
+  validates :duration, presence: true
+
   enum status: { Open: 0, Pending: 1, Cancelled: 2, Confirmed: 3, Archived: 4 }
 
   def bookings_for_lessons
