@@ -1,12 +1,22 @@
 <%= render 'shared/navbar' %>
+<div class="application-container-dark">
+  <div class="wrapper-dark">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 text-center">
 
-<%= simple_form_for(@lesson) do |f| %>
-  <%= f.input :start_time %>
-  <%= f.input :duration %>
-  <%= f.input :price %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.input :subject_id, collection: @subjects %>
-  <%= f.submit %>
-<% end %>
+          <%= simple_form_for(@lesson) do |f| %>
+            <%= f.input :start_time %>
+            <%= f.input :duration %>
+            <%= f.input :price %>
+            <%= f.input :address %>
+            <%= f.input :description %>
+            <%= f.input :subject_id, collection: @subjects %>
+            <%= f.submit class:"login-btn" %>
+          <% end %>
 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

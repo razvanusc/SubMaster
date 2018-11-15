@@ -1,15 +1,17 @@
 <%= render 'shared/navbar' %>
+<div class="application-container-light">
+  <div class="wrapper-light">
+    <div class="container-fluid show-container">
+      <div class="row">
+        <div class="big-card-image">
+          <div class="col-xs-12 text-center card-header">
+            <p><%= @user.first_name%> <%= @user.last_name%></p>
+          </div>
+          <div class="col-xs-12 text-center card-bottom">
+            <p>Details</p>
+          </div>
+        </div>
 
-<div class="wrapper-light">
-  <div class="container-fluid show-container">
-    <div class="row">
-      <div class="big-card-image">
-        <div class="col-xs-12 text-center card-header">
-          <p><%= @user.first_name%> <%= @user.last_name%></p>
-        </div>
-        <div class="col-xs-12 text-center card-bottom">
-          <p>Details</p>
-        </div>
       </div>
       <div class="col-xs-12 text-left show-content">
         <div class="user information">

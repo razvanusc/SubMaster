@@ -1,6 +1,18 @@
-<h1>Book your class: <%= @lesson.description %></h1>
-<div class="devise-input-form">
-   <%= simple_form_for([@lesson, @booking]) do |f| %>
-     <%= f.submit %>
-   <% end %>
+<div class="application-container-dark">
+  <div class="wrapper-dark">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+
+          <h1>Book your class: <%= @lesson.description %></h1>
+          <div class="devise-input-form">
+             <%= simple_form_for([@lesson, @booking]) do |f| %>
+               <%= f.submit %>
+             <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
