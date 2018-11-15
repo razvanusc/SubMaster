@@ -7,11 +7,11 @@
     <li>
   <%= @lesson.status %>
   <%= @lesson.start_time %>
-  <%= @lesson.start_date %>
   <%= @lesson.duration %>
   <%= @lesson.price %>
   <%= @lesson.address %>
   <%= @lesson.description %>
+  <%= @lesson.urgent %>
   <%= link_to "Book this boat", new_lesson_booking_path(@lesson)%>
   </li>
 </ul>
