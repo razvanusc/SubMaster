@@ -2,17 +2,11 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
 
-    if params[:show]
-      @bookings = @bookings.where(status: params[:show])
-    else
-      @bookings = @bookings
-    end
-
-    if params[:show]
-      @bookings_for_lessons = @bookings_for_lessons.where(status: params[:show])
-    else
-      @bookings_for_lessons = @bookings_for_lessons
-    end
+    # if params[:show]
+    #   @bookings = @bookings.where(status: params[:show])
+    # else
+    #   @bookings = @bookings
+    # end
   end
 
   def show
@@ -30,6 +24,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.lesson = @lesson
     @booking.status = "Pending"
+
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -39,8 +34,7 @@ class BookingsController < ApplicationController
 
   def confirm
     @booking = Booking.find(params[:id])
-    authorize @booking
-    confirm!
+    authorize @bookin
     redirect_to user_path(current_user)
   end
 

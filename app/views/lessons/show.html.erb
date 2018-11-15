@@ -1,12 +1,19 @@
-<ul>
-  <li>
-    <%= @lesson.status %>
-    <%= @lesson.start_time %>
-    <%= @lesson.start_date %>
-    <%= @lesson.duration %>
-    <%= @lesson.price %>
-    <%= @lesson.address %>
-    <%= @lesson.description %>
-    <%= link_to "Book this boat", new_lesson_booking_path(@lesson)%>
-  </li>
-</ul>
+<%= render 'shared/navbar' %>
+<div class="wrapper-light">
+  <div class="container">
+    <div class="row">
+      <ul>
+        <li>
+          <%= @lesson.status %>
+          <%= @lesson.start_time %>
+          <%= @lesson.start_date %>
+          <%= @lesson.duration %>
+          <%= @lesson.price %>
+          <%= @lesson.address %>
+          <%= @lesson.description %>
+          <%= link_to "Book this boat", new_lesson_booking_path(@lesson)%>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

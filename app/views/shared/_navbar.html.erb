@@ -6,7 +6,6 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-left hidden-xs hidden-sm">
-    <h2> </h2>
 
     <% if user_signed_in? %>
 
@@ -45,7 +44,7 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
-
+  <div class="image-navbar"></div>
   <!-- Dropdown list appearing on mobile only -->
 
   <div class="navbar-wagon-item hidden-md hidden-lg">
