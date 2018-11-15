@@ -1,43 +1,43 @@
 <%= render 'shared/navbar' %>
 
 <div class="wrapper-light">
-  <div class="container-fluid">
-
-    <div class="big-card-image">
+  <div class="container-fluid show-container">
+    <div class="row">
+      <div class="big-card-image">
         <div class="col-xs-12 text-center card-header">
           <p><%= @user.first_name%> <%= @user.last_name%></p>
         </div>
         <div class="col-xs-12 text-center card-bottom">
           <p>Details</p>
         </div>
-    </div>
-
-    <div class="col-xs-12 text-left show-content">
-
+      </div>
+      <div class="col-xs-12 text-left show-content">
 <!-- these should be clickable icons -->
-
-      <p><strong>Website: </strong> <%= @user.website_url%></p>
-      <p><strong>Facebook: </strong><%= @user.facebook_url%></p>
-      <p><strong>Instagram: </strong><%= @user.instagram_url%></p>
-      <p><strong>Bio: </strong><%= @user.bio%></p>
+        <p><strong>Website: </strong> <%= @user.website_url%></p>
+        <p><strong>Facebook: </strong><%= @user.facebook_url%></p>
+        <p><strong>Instagram: </strong><%= @user.instagram_url%></p>
+        <p><strong>Bio: </strong><%= @user.bio%></p>
 
 <!-- the below details should be only visible to creator and who booked a class or we should ask user what he/she prefers -->
 
-      <p><strong>Email:</strong> <%= @user.email%></p>
-      <p><strong>Phone number:</strong> <%= @user.phone_number%></p>
-      <p><strong>Available:</strong>
-        <% if @user.available%>
-          <%= "Yes" %>
-        <% else %>
-          <%= "No" %>
-        <% end %>
-      </p>
-      <p><strong>Address: </strong><%= @user.address%></p>
-      <p><strong>Preferred Days:</strong><%= @user.weekday_preference%></p>
-      <p><strong>Preferred Times:</strong><%= @user.daytime_preference%></p>
+        <p><strong>Email:</strong> <%= @user.email%></p>
+        <p><strong>Phone number:</strong> <%= @user.phone_number%></p>
+        <p><strong>Available:</strong>
+          <% if @user.available%>
+            <%= "Yes" %>
+          <% else %>
+            <%= "No" %>
+          <% end %>
+        </p>
+        <p><strong>Address: </strong><%= @user.address%></p>
+        <p><strong>Preferred Days:</strong><%= @user.weekday_preference%></p>
+        <p><strong>Preferred Times:</strong><%= @user.daytime_preference%></p>
+      </div>
 
  <!--  links to be added: add a class, edit settings -->
-      <p><%=link_to 'Edit profile page', edit_user_path %> </p>
+      <div class="col-xs-12 show-links">
+        <p><%=link_to 'Edit profile page', edit_user_path %> </p>
+      </div>
     </div>
   </div>
 </div>
