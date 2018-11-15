@@ -4,7 +4,6 @@
   // height: 95vh;
   h2 {
     font-weight: 300;
-    font-size: 40px;
     color: #FFFFFF;
     margin-top: 67px;
     margin-bottom: 12px;
@@ -50,6 +49,10 @@ label {
  border-left: 0px transparent;
 }
 
+.form-check-input {
+
+}
+
 .form-btn {
   display: flex;
   justify-content: center;
@@ -59,18 +62,19 @@ label {
 
 .form-btn:hover {
   text-decoration: none;
+  color: white;
 }
 
 a {
   display: flex;
   justify-content: center;
   color: #C4C4C4;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 a:hover {
   text-decoration: none !important;
-  color: $bright-blue !important;
+  color: grey !important;
 }
 
 
