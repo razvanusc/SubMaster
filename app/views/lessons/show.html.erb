@@ -5,8 +5,7 @@
       <ul>
         <li>
           <%= @lesson.status %>
-          <%= @lesson.start_time %>
-          <%= @lesson.start_date %>
+          <%= @lesson.start_date.strftime("%d-%B-%Y (%A)") %>
           <%= @lesson.duration %>
           <%= @lesson.price %>
           <%= @lesson.address %>
@@ -17,3 +16,10 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <%= render 'shared/card', lesson: @lesson %>
+  </div>
+</div>
+
