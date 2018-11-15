@@ -1,48 +1,93 @@
-.card {
-  height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
-  color: #E5E5E5;
+.long-card {
+  margin-top: 3px;
+  margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 100px;
+  width: auto;
+  background-color: $light-gray;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.long-card-img {
+  width: 128px;
+  height: 100px;
+  left: -10px;
+  background: image-url("crossfit-small") center;
   position: relative;
 }
-.card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
-  border-radius: 50%;
-}
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
+
+.long-card-img p {
+  font-size: 11px;
+  font-weight: bolder;
+  margin-top: 15px;
+  text-align: center;
   text-transform: uppercase;
 }
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
+.long-card-text {
+  position: relative;
+  width: auto;
+  height: 20px;
+  top: 80px;
   background: black;
-  opacity: 0;
+  opacity: 0.7;
+  color: white;
 }
-.card-link:hover {
-  opacity: 0.1;
+.long-card-date {
+  position: absolute;
+  bottom: -10px;
+  left: 5px;
+}
+
+.long-card-day {
+  position: absolute;
+  right: 5px;
+  bottom: -10px;
+}
+
+.long-card-time {
+  position: absolute;
+  bottom: -10px;
+  right: 32px;
+}
+
+.long-card-body {
+  flex-grow: 1;
+  padding-top: 17px;
+}
+
+.long-card-body p {
+  padding-left: 10px;
+  font-size: 13px;
+}
+
+.long-card-right {
+  width: 50px;
+  height: 100px;
+}
+
+.long-card-right p {
+  font-size: 13px;
+  width: 10px;
+  margin-top: 9px;
+}
+p.description {
+  font-size: 14px;
+  line-height: 0px;
+}
+p.address {
+  color: #C4C4C4;
+  text-transform: uppercase;
+}
+p.status {
+  color: $yellow;
+}
+p.duration {
+  width: 50px;
+  padding-top: 30.7px;
+}
+p.cost {
+  padding-top: 10px;
 }
