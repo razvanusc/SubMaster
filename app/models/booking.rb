@@ -17,4 +17,10 @@ class Booking < ApplicationRecord
       lesson.update! status: status
     end
   end
+
+  # def max_3
+  #   if booking.size > 3
+  #     puts "Sorry can't create more bookings for this class"
+  #   end
+  # end
 end

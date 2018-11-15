@@ -12,7 +12,11 @@
   <%= @lesson.address %>
   <%= @lesson.description %>
   <%= @lesson.urgent %>
+  <% if @lesson.bookings.count < 3 %>
   <%= link_to "Book this boat", new_lesson_booking_path(@lesson)%>
+  <% else %>
+  <%= "Sorry, this class has enough bookings, try a different class!" %>
+  <% end %>
   </li>
 </ul>
 
