@@ -1,8 +1,11 @@
 <%= render 'shared/navbar' %>
+
 <div class="application-container-light">
   <div class="wrapper-light">
     <div class="container-fluid show-container">
+
       <div class="row">
+
         <div class="big-card-image">
           <div class="col-xs-12 text-center card-header">
             <p><%= @user.first_name%> <%= @user.last_name%></p>
@@ -11,72 +14,42 @@
             <p>Details</p>
           </div>
         </div>
-
       </div>
-      <div class="col-xs-12 text-left show-content">
-        <div class="user information">
-          <div class="user information email">
-            <p><strong>Email:</strong> <%= @user.email%></p>
+
+      <div class="row">
+        <div class="col-xs-6 user-show-content">
+          <p><strong>Email:</strong> <%= @user.email%></p>
+          <p><strong>Phone number:</strong> <%= @user.phone_number%></p>
+          <p><strong>Available:</strong>
+            <% if @user.available%>
+            <%= "Yes" %>
+            <% else %>
+            <%= "No" %>
+            <% end %>
+          </p>
+          <p><strong>Address: </strong><%= @user.address%></p>
+          <p><strong>Preferred Days:</strong><%= @user.weekday_preference%></p>
+          <p><strong>Preferred Times:</strong><%= @user.daytime_preference%></p>
           </div>
 
-          <div class="user phone-number">
-            <p><strong>Phone number:</strong> <%= @user.phone_number%></p>
-          </div>
+          <div class="col-xs-6 user-show-content">
 
-          <div class="user status">
-            <p><strong>Available:</strong>
-              <% if @user.available%>
-              <%= "Yes" %>
-              <% else %>
-              <%= "No" %>
-              <% end %>
-            </p>
-          </div>
-
-          <div class="user address">
-            <p><strong>Address: </strong><%= @user.address%></p>
-          </div>
-
-          <div class="user days">
-            <p><strong>Preferred Days:</strong><%= @user.weekday_preference%></p>
-          </div>
-
-          <div class="user time">
-            <p><strong>Preferred Times:</strong><%= @user.daytime_preference%></p>
-          </div>
-        </div>
-
-        <!-- these should be clickable icons -->
-        <div class="user description">
-
-          <div class="website_url">
+          <!-- these should be clickable icons -->
             <p><strong>Website: </strong> <%= @user.website_url%></p>
-          </div>
-
-          <div class="face">
             <p><strong>Facebook: </strong><%= @user.facebook_url%></p>
-          </div>
-
-          <div class="insta">
             <p><strong>Instagram: </strong><%= @user.instagram_url%></p>
-          </div>
-
-          <div class="bio">
             <p><strong>Bio: </strong><%= @user.bio%></p>
           </div>
 
-
         </div>
-
         <!-- the below details should be only visible to creator and who booked a class or we should ask user what he/she prefers -->
 
-      </div>
-
       <!--  links to be added: add a class, edit settings -->
-      <div class="col-xs-12 show-links">
-        <p><%=link_to 'Edit profile page', edit_user_path %> </p>
-      </div>
-
+        <div class="row">
+          <div class="col-xs-12 show-links">
+            <p><%=link_to 'Edit profile page', edit_user_path %> </p>
+          </div>
+        </div>
     </div>
   </div>
 </div>
