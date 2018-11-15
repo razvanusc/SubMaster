@@ -12,7 +12,9 @@
 
 .home-button:hover {
   text-decoration: none;
+  color: greyli;
 }
+
 
 .dark-button {
   display: inline-block;
@@ -45,5 +47,5 @@
 }
 
 .login-btn:hover {
-  color:  $bright-blue;
+  color: grey;
 }

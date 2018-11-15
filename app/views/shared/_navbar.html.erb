@@ -1,81 +1,88 @@
 <div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "", height: 50 %>
-  <% end %>
-
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-left hidden-xs hidden-sm">
+  <div class="navbar-wagon-left">
 
     <% if user_signed_in? %>
 
-      <!-- Links when logged in -->
+    <!-- Links when logged in -->
 
-      <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
+    <!-- Avatar with dropdown menu -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <%= image_tag "img_avatar", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to user_path(current_user) do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path do %>
+            <i class="fa fa-home"></i> <%= t(".home", default: "Home") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to edit_user_path(current_user) do %>
+            <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <% else %>
+    <!-- Login link (when logged out) -->
+    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+    <!-- Logo -->
+
+
+    <!-- Dropdown list appearing on mobile only -->
+
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+
+      <% if user_signed_in? %>
+      <div class="dropdown">
+        <%= image_tag "img_avatar", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+          <li> <%= link_to "Profile", user_path(current_user)%> </li>
+          <li> <%= link_to "Home", root_path%> </li>
+          <li> <%= link_to "My Sub Requests", user_path(:id)%> </li>
+          <li> <%= link_to "Sub a class", user_path(:id)%> </li>
+          <li> <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= t(".sign_out", default: "Log out") %>
+            <% end %> </li>
+          </ul>
+        </div>
+        <% else %>
+        <!-- Login link (when logged out) -->
+      <!--   <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <% end %> -->
+      </div>
+
+      <strong><p></p></strong>
+
+      <div class="navbar-wagon-item-right hidden-md hidden-lg">
         <div class="dropdown">
-          <%= image_tag "img_avatar", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to user_path(current_user) do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to root_path do %>
-                <i class="fa fa-home"></i> <%= t(".home", default: "Home") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to edit_user_path(current_user) do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
+          <i class="fas fa-sliders-h" data-toggle="dropdown"></i>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li> <%=link_to "Edit Preferences", edit_user_path(:id)  %></li>
           </ul>
         </div>
       </div>
-    <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
-  </div>
-  <div class="image-navbar"></div>
-  <!-- Dropdown list appearing on mobile only -->
-
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-
-    <% if user_signed_in? %>
-    <div class="dropdown">
-      <%= image_tag "img_avatar", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-      <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
-        <li> <%= link_to "Profile", user_path(current_user)%> </li>
-        <li> <%= link_to "Home", root_path%> </li>
-        <li> <%= link_to "My Sub Requests", user_path(:id)%> </li>
-        <li> <%= link_to "Sub a class", user_path(:id)%> </li>
-        <li> <%= link_to destroy_user_session_path, method: :delete do %>
-                <%= t(".sign_out", default: "Log out") %>
-              <% end %> </li>
-      </ul>
     </div>
-    <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-  <% end %>
-  </div>
-
-  <strong><p></p></strong>
-
-  <div class="navbar-wagon-item-right hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fas fa-sliders-h" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li> <%=link_to "Edit Preferences", edit_user_path(:id)  %></li>
-      </ul>
+    <div class="logo">
+      <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "logo.png", height: 50 %>
+      <% end %>
     </div>
-  </div>
-</div>
+    <div class="preferences">
+     <%= link_to root_path do %>
+     <i class="fas fa-sliders-h"></i>
+     <% end %>
+   </div>
+
+ </div>
