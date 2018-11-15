@@ -13,11 +13,19 @@ Booking.destroy_all
 
 puts "Seeding..."
 
-subject = Subject.create(name: "yoga")
+subject1 = Subject.create(name: "Yoga")
+subject2 = Subject.create(name: "Pilates")
+subject3 = Subject.create(name: "Aerobic")
+subject4 = Subject.create(name: "Body Balance")
+subject5 = Subject.create(name: "Boxing")
+subject6 = Subject.create(name: "Crossfit")
+subject7 = Subject.create(name: "Dance")
+subject8 = Subject.create(name: "Kick Boxing")
+subject9 = Subject.create(name: "Pole Dance")
+subject10 = Subject.create(name: "Zumba")
 
-User.create!([
-  {
-    email: "frank@gmail.com",
+
+user1 = User.create!(email: "frank@gmail.com",
     password: "123secret",
     first_name: "Frank",
     last_name: "Alkema",
@@ -27,10 +35,9 @@ User.create!([
     facebook_url: "facebook.com",
     instagram_url: "instagram.com",
     available: true,
-    address: "Amsterdam"
-  },
-  {
-    email: "jordy@gmail.com",
+    address: "Amsterdam")
+
+user2 = User.create!(email: "jordy@gmail.com",
     password: "123secret",
     first_name: "Jordy",
     last_name: "Kleberg",
@@ -40,10 +47,9 @@ User.create!([
     facebook_url: "facebook.com",
     instagram_url: "instagram.com",
     available: true,
-    address: "Haarlem"
-  },
-  {
-    email: "max@gmail.com",
+    address: "Haarlem")
+
+user3 = User.create!(email: "max@gmail.com",
     password: "123secret",
     first_name: "Max",
     last_name: "Fontana",
@@ -53,63 +59,38 @@ User.create!([
     facebook_url: "facebook.com",
     instagram_url: "instagram.com",
     available: true,
-    address: "Utrecht"
-  }
-])
-
-owner = User.create!(email: "owner@gmail.com",
-    password: "123secret",
-    first_name: "Owner",
-    last_name: "Fontana",
-    phone_number: "1234567890",
-    bio: "I am Ownerx",
-    website_url: "iammax.com",
-    facebook_url: "facebook.com",
-    instagram_url: "instagram.com",
-    available: true,
     address: "Utrecht")
 
 
-Lesson.create!([
-  {
-    start_time: DateTime.strptime("17:00", "%H:%M"),
-    start_date: DateTime.strptime("09/01/2019", "%m/%d/%Y"),
+lesson1 = Lesson.create(start_time: DateTime.strptime("11/19/2019 10:00", "%m/%d/%Y %H:%M"),
     duration: 50,
     price: 20,
     address: "Amsterdam",
     description: "Yoga class",
-    subject: subject,
-    user: owner
-  },
-  {
-    start_time: DateTime.strptime("8:00", "%H:%M"),
-    start_date: DateTime.strptime("09/14/2019", "%m/%d/%Y"),
+    subject: subject1,
+    user: user1)
+
+lesson2 = Lesson.create(start_time: DateTime.strptime("11/18/2019 7:00", "%m/%d/%Y %H:%M"),
     duration: 40,
     price: 10,
     address: "Haarlem",
-    description: "Yoga class",
-    subject: subject,
-    user: owner
-  },
-  {
-    start_time: DateTime.strptime("9:00", "%H:%M"),
-    start_date: DateTime.strptime("09/14/2019", "%m/%d/%Y"),
+    description: "Kick Boxing class",
+    subject: subject8,
+    user: user2)
+
+lesson3 = Lesson.create(start_time: DateTime.strptime("11/16/2019 7:00", "%m/%d/%Y %H:%M"),
     duration: 50,
     price: 20,
     address: "Utrecht",
-    description: "Yoga class",
-    subject: subject,
-    user: owner
-  },
-  {
-    start_time: DateTime.strptime("10:00", "%H:%M"),
-    start_date: DateTime.strptime("09/14/2019", "%m/%d/%Y"),
+    description: "Crossfit class",
+    subject: subject6,
+    user: user3)
+
+lesson4 = Lesson.create(start_time: DateTime.strptime("09/14/2019 8:00", "%m/%d/%Y %H:%M"),
     duration: 60,
     price: 50,
     address: "Maastricht",
-    description: "Yoga class",
-    subject: subject,
-    user: owner
-  }
-])
+    description: "Zumba class",
+    subject: subject10,
+    user: user1)
 
