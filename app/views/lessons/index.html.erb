@@ -1,23 +1,44 @@
+<%= render 'shared/navbar' %>
+
 <div class="wrapper-light">
-  <div class="container">
+  <div class="container-fluid show-container">
+      <div class="row">
+        <div class="col-xs-6 text-center index-header index-left">
+          <%= link_to "Sub a class", lessons_path%>
+        </div>
+        <div class="col-xs-6 text-center index-header index-right">
+          <%= link_to "Your requests", user_lessons_path(@user)%>
+        </div>
+      </div>
+
+      <% if params[:user_id] %>
+
+      <div class="row">
+        <div class="col-xs-4 text-center index-header index-left">
+          <%= link_to "Open", user_lessons_path(@user, show:"Open")%>
+        </div>
+        <div class="col-xs-4 text-center index-header index-middle">
+              <%= link_to "Pending", user_lessons_path(@user, show:"Pending")%>
+        </div>
+        <div class="col-xs-4 text-center index-header index-right">
+            <%= link_to "Covered", user_lessons_path(@user, show:"Confirmed")%>
+        </div>
+      </div>
+
+    <% else %>
 
     <div class="row">
-     <div class="col-xs-6 text-center">
-      <%= link_to "Sub a class", lessons_path, class: "dark-button"%>
+      <div class="col-xs-4 text-center index-header index-left">
+        <%= link_to "Open", lessons_path(@lesson, show:"Open")%>
       </div>
-      <div class="col-xs-6 text-center">
-       <%= link_to "Your requests", user_lessons_path(@user), class: "dark-button"%>
-     </div>
+      <div class="col-xs-4 text-center index-header index-middle">
+        <%= link_to "Pending", lessons_path(@lesson, show:"Pending")%>
+      </div>
+      <div class="col-xs-4 text-center index-header index-right">
+        <%= link_to "Covered", lessons_path(@lesson, show:"Confirmed")%>
+      </div>
     </div>
 
-    <% if params[:user_id] %>
-      <%= link_to "Open", user_lessons_path(@user, show:"Open")%>
-      <%= link_to "Pending", user_lessons_path(@user, show:"Pending")%>
-      <%= link_to "Covered", user_lessons_path(@user, show:"Confirmed")%>
-    <% else %>
-      <%= link_to "Open", lessons_path(@lesson, show:"Open")%>
-      <%= link_to "Pending", lessons_path(@lesson, show:"Pending")%>
-      <%= link_to "Covered", lessons_path(@lesson, show:"Confirmed")%>
     <% end %>
 
       <ul>

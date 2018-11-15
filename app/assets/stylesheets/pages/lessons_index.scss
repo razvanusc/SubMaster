@@ -1,0 +1,28 @@
+.index-header{
+  background-color: $darkblue;
+  opacity: 0.5;
+  height: 40px;
+  padding-top: 8px;
+  font-size: 18px;
+  color: white;
+  text-transform: uppercase;
+  // border: 1px solid grey;
+}
+
+.index-left {
+  border-left: 1px solid $grayblue;
+  border-right: 1px solid $grayblue;
+  border-bottom: 1px solid $grayblue;
+}
+
+.index-middle {
+  border-bottom: 1px solid $grayblue;
+  border-right: 1px solid $grayblue;
+}
+
+.index-right {
+ border-bottom: 1px solid $grayblue;
+ border-right: 1px solid $grayblue;
+}
+
+
