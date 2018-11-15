@@ -1,9 +1,37 @@
 .show-content{
+  display: flex;
   margin: 20px;
   padding-top: 20px;
+  padding-right: 10px;
   overflow: scroll;
+  justify-content: space-around;
+}
+
+
+
+.show-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+  margin-top: -7px;
+}
+
+.show-links p {
+  border-bottom: 2px dotted black;
+  padding-bottom: 14px;
+  margin-bottom: 10px;
+}
+
+a:hover{
+  color: black;
 }
 
 .show-container{
   background-color: $middle-gray;
 }
+
+.fa-sliders-h:before {
+  content: "\f1de";
+  color: white;
+}
+
