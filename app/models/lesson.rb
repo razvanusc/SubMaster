@@ -22,6 +22,12 @@ class Lesson < ApplicationRecord
     return "URGENT!!!" if time < 24
   end
 
+  # def image
+  #   if lesson.subject == "crossfit"
+  #     background
+  #   end
+  # end
+
   # def status
   #   bookings.any? {|b| b.status == 'Confirmed'} ? "Confirmed" : "Pending"
   # end
