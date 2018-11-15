@@ -25,6 +25,7 @@ class LessonsController < ApplicationController
   end
 
   def show
+    @bookings = Booking.all
     @lesson = Lesson.find(params[:id])
   end
 
