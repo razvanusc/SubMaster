@@ -3,7 +3,6 @@
 <div class="wrapper-light">
   <div class="container-fluid show-container">
     <div class="row">
-
       <div class="big-card-image">
         <div class="col-xs-12 text-center card-header">
           <p><%= @lesson.subject.name%></p>
@@ -12,7 +11,7 @@
           <p><%= @lesson.status%></p>
         </div>
       </div>
-      
+
       <div class="col-xs-12 text-left show-content">
         <p><strong> <%= @lesson.urgent %> </strong> </p>
         <p><strong>Date: </strong>  <%= @lesson.start_date.strftime("%d-%B-%Y (%A)") %></p>
@@ -22,7 +21,7 @@
         <p><strong>Address: </strong><%= @lesson.address %> </p>
         <p><strong>Additional info: </strong><%= @lesson.description %> </p>
       </div>
-      
+
       <div class="col-xs-12 show-links" >
          <p>  <% if @lesson.bookings.count < 3 %>
           <%= link_to "Book this boat", new_lesson_booking_path(@lesson)%>
@@ -32,10 +31,7 @@
               </p>
         <p><%= link_to "Sub this class", new_lesson_booking_path(@lesson)%> </p>
       </div>
- 
+
     </div>
   </div>
 </div>
-
-<%= cl_image_tag("avatar_placeholder",
-      width: 400, height: 300, crop: :fill) %>

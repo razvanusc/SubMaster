@@ -35,3 +35,30 @@
       <%= link_to "Create new class", new_lesson_path%>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="long-card">
+      <div class="long-card-img">
+        <div class="long-card-text">
+
+          <p class="long-card-date"><%= @lesson.start_date.strftime("%d/%m/%Y") %></p>
+          <p class="long-card-day"><%= @lesson.start_date.strftime("%a") %></p>
+          <p class="long-card-time"><%= @lesson.start_date.strftime("%H:%M") %></p>
+        </div>
+      </div>
+
+      <div class="long-card-body">
+        <p class="description"><%= lesson.description %></p>
+        <p class="address"><%= lesson.address %></p>
+        <p class="cost"><%= lesson.price %>€</p>
+      </div>
+      <div class="long-card-right">
+        <p class="status"><%= lesson.status %></p>
+        <p class="duration"><%= lesson.duration %> min.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
