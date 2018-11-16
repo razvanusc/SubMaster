@@ -1,4 +1,23 @@
 <%= render 'shared/navbar' %>
+<button onclick="myFunction()"><i class="fas fa-search"></i></button>
+
+<div id="myDIV">
+  <% query_path = nil %>
+  <% if params[:user_id] %>
+    <% query_path = user_lessons_path(@user) %>
+  <% else %>
+    <% query_path = lessons_path %>
+  <% end %>
+
+  <%= form_tag query_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a lesson"
+  %>
+<% end %>
+</div>
+
   <div class="application-container-light">
     <div class="container-fluid show-container">
       <!-- Header 1 -->
