@@ -20,6 +20,14 @@ class LessonsController < ApplicationController
   def show
     @bookings = Booking.all
     @lesson = Lesson.find(params[:id])
+    @lessons = Lesson.where.not(latitude: nil, longitude: nil)
+
+    @markers = @lessons.map do |lesson|
+      {
+        lng: lesson.longitude,
+        lat: lesson.latitude
+      }
+    end
   end
 
   def new

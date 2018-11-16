@@ -29,6 +29,9 @@ class Lesson < ApplicationRecord
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   # def image
   #   if lesson.subject == "crossfit"
   #     background
