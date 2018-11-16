@@ -27,6 +27,17 @@ label {
  border-left: 0px transparent;
 }
 
+
+//form-control doesnt apply to all the buttons. so i specified the class to get it to work
+.form-control.string.email.required {
+  width: 80%;
+  margin: 34px;
+  margin-bottom: 28px;
+  margin-top: 0px;
+}
+
+
+
 // .checkbox-padding {
 //   margin-left: 6px;
 // }
