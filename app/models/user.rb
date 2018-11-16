@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :delete_all
 
   mount_uploader :photo, PhotoUploader
+
+  serialize :weekday_preference
+  serialize :daytime_preference
 end

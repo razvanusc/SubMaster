@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   background-color: $lightgray;
+  margin: 0;
 }
 
 .application-container-dark {
@@ -43,6 +44,9 @@
   max-width: 375px;
 }
 
+.show-links {
+  margin-top: 50px;
+}
 // html tags
 
 body{
