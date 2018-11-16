@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_133605) do
+ActiveRecord::Schema.define(version: 2018_11_16_104638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,9 +76,9 @@ ActiveRecord::Schema.define(version: 2018_11_15_133605) do
     t.string "instagram_url"
     t.boolean "available"
     t.string "address"
-    t.datetime "weekday_preference"
-    t.datetime "daytime_preference"
     t.string "photo"
+    t.string "weekday_preference"
+    t.string "daytime_preference"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

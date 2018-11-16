@@ -8,7 +8,6 @@
               <%= f.input :first_name %>
               <%= f.input :last_name %>
               <%= f.input :email %>
-              <%= f.input :password %>
               <%= f.input :phone_number %>
               <%= f.input :bio %>
               <%= f.input :website_url %>
@@ -16,8 +15,13 @@
               <%= f.input :instagram_url %>
               <%= f.input :available %>
               <%= f.input :address %>
-              <%= f.input :weekday_preference %>
-              <%= f.input :daytime_preference %>
+              <%= f.input :weekday_preference, as: :check_boxes, collection: [['Monday', 1],
+              ['Tuesday', 2], ['Wednesday', 3], ['Thursday', 4], ['Friday', 5], ['Saturday', 6],
+              ['Sunday', 7]] %>
+              <%= f.input :daytime_preference, as: :check_boxes, collection: [['Morning (6-12)', 1],
+              ['Afternoon (12-18)', 2], ['Evening (18-22)', 3]] %>
+              <%= f.input :photo %>
+              <%= f.input :photo_cache, as: :hidden %>
               <%= f.submit class: "login-btn" %>
             <% end %>
         </div>
