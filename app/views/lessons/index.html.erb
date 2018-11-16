@@ -66,7 +66,27 @@
 
         <%= link_to lesson_path(lesson) do %>
         <div class= "long-card-img">
-          <%= image_tag "crossfit-small.jpg", width:130, height:80, background:"center" %>
+          <% if lesson.subject.name == "Crossfit" %>
+          <%= image_tag "crossfit.jpg", width:130, height:80, background:"center" %>
+          <% elsif lesson.subject.name == "Zumba" %>
+          <%= image_tag "proxy.duckduckgo.jpg", width:130, height:80, background:"center" %>
+          <% elsif lesson.subject.name == "Yoga" %>
+          <%= image_tag "Yoga-Stock.jpg", width:130, height:80, background:"center" %>
+          <% elsif lesson.subject.name == "Pilates" %>
+          <%= image_tag "DSC4551-1.jpg", width:130, height:80, background:"center" %>
+          <% elsif lesson.subject.name == "Aerobic" %>
+          <%= image_tag "slack-imgs-4.jpg", width:130, height:80, background:"center" %>
+          <% elsif lesson.subject.name == "Body Balance" %>
+          <%= image_tag "bodybalance.jpg", width:130, height:80, background:"center" %>
+          <% elsif lesson.subject.name == "Boxing" %>
+          <%= image_tag "boxing.jpg", width:130, height:80, background:"center" %>
+          <% elsif lesson.subject.name == "Dance" %>
+          <%= image_tag "dance.jpg", width:130, height:80, background:"center" %>
+          <% elsif lesson.subject.name == "Kick Boxing" %>
+          <%= image_tag "kickboxing", width:130, height:80, background:"center" %>
+          <% elsif lesson.subject.name == "Pole Dance" %>
+          <%= image_tag "pole-dance.jpg", width:130, height:80, background:"center" %>
+          <% end %>
             <div class="long-card-text">
               <p class="long-card-date"><%= lesson.start_time.strftime("%d/%m/%Y") %></p>
               <p class="long-card-day"><%= lesson.start_time.strftime("%a") %></p>
