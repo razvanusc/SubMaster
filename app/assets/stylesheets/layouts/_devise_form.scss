@@ -37,10 +37,40 @@ label {
 }
 
 
+.form-control.numeric.integer.required {
+  width: 80%;
+  margin: 34px;
+  margin-bottom: 28px;
+  margin-top: 0px;
+}
+
+.form-control.string.required {
+  width: 80%;
+  margin: 34px;
+  margin-bottom: 28px;
+  margin-top: 0px;
+}
+
+.form-control.select.optional {
+  width: 80%;
+  margin: 34px;
+  margin-bottom: 28px;
+  margin-top: 0px;
+  border-radius: none;
+}
+
+.form-control.mx-1.datetime.optional {
+  width: 80%;
+  margin: 34px;
+  margin-bottom: 28px;
+  margin-top: 0px;
+  border-radius: none;
+}
 
 // .checkbox-padding {
 //   margin-left: 6px;
 // }
+
 
 
 .form-check label {
