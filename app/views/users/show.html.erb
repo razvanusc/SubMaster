@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
 <div class="application-container-light">
-  <div class="container-fluid show-container">
+  <div class=" show-container">
     <div class="row">
 
       <div class="big-card-image">
@@ -14,36 +14,44 @@
     </div>
 
     <div class="row">
-      <div class="col-xs-6 user-show-content">
-        <p><strong>Email:</strong> <%= @user.email%></p>
-        <p><strong>Phone number:</strong> <%= @user.phone_number%></p>
-        <p><strong>Available:</strong>
-          <% if @user.available%>
-          <%= "Yes" %>
-          <% else %>
-          <%= "No" %>
-          <% end %>
-        </p>
-        <p><strong>Address: </strong><%= @user.address%></p>
-        <p><strong>Preferred Days:</strong><%= @user.weekday_preference%></p>
-        <p><strong>Preferred Times:</strong><%= @user.daytime_preference%></p>
-        </div>
 
-        <div class="col-xs-6 user-show-content">
+      <div class="col-xs-12 user-show-content">
 
         <!-- these should be clickable icons -->
-          <p><strong>Website: </strong> <%= @user.website_url%></p>
-          <p><strong>Facebook: </strong><%= @user.facebook_url%></p>
-          <p><strong>Instagram: </strong><%= @user.instagram_url%></p>
-          <p><strong>Bio: </strong><%= @user.bio%></p>
-        </div>
+        <ul>
+          <li> <%= link_to "http://www.facebook.com/krystonen" do %>
+            <i class="fab fa-facebook"> </i> <% end %> </li>
+          <li><%= link_to "http://www.instagram.com/krystonen" do %>
+            <i class="fab fa-instagram"></i> <% end %> </li>
+          <li><%= link_to "http://www.instagram.com/krystonen" do %>
+            <i class="fas fa-link"></i> <% end %> </li>
+        </ul>
 
       </div>
+
+      <div class="col-xs-12 user-show-content">
+        <div class="user-details text-left">
+          <p><strong>Email:</strong> <%= @user.email%></p>
+          <p><strong>Phone number:</strong> <%= @user.phone_number%></p>
+          <p><strong>Available:</strong>
+            <% if @user.available%>
+            <%= "Yes" %>
+            <% else %>
+            <%= "No" %>
+            <% end %>
+          </p>
+          <p><strong>Address: </strong><%= @user.address%></p>
+          <p><strong>Bio: </strong> <%= @user.bio%></p>
+        </div>
+      </p>
+
+
       <!-- the below details should be only visible to creator and who booked a class or we should ask user what he/she prefers -->
 
     <!--  links to be added: add a class, edit settings -->
       <div class="row">
-        <div class="col-xs-12 show-links">
+        <div class="col-xs-12 text-center">
+          <p><%=link_to 'View classes', lessons_path, class:"dark-button" %> </p>
           <p><%=link_to 'Edit profile page', edit_user_path %> </p>
         </div>
       </div>
