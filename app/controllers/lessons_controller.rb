@@ -1,27 +1,14 @@
 class LessonsController < ApplicationController
   def index
     @lessons = Lesson.all
+    @show = params[:show] || "Open"
+    @user = current_user
     if params[:user_id]
-      if params[:show]
-        @user = User.find(params[:user_id])
-        @lessons = Lesson.where(user: @user)
-        @lessons = @lessons.where(status: params[:show])
-      else
-        @user = User.find(params[:user_id])
-        @lessons = Lesson.where(user: @user)
-        @lessons = @lessons
-      end
+      @lessons = Lesson.where(user: @user)
     else
-      if params[:show]
-        @user = current_user
-        @lessons = Lesson.where.not(user: @user)
-        @lessons = @lessons.where(status: params[:show])
-      else
-        @user = current_user
-        @lessons = Lesson.where.not(user: @user)
-        @lessons = @lessons
-      end
+      @lessons = Lesson.where.not(user: @user)
     end
+    @lessons = @lessons.where(status: @show)
   end
 
   def show

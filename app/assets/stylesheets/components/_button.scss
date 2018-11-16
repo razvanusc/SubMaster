@@ -1,27 +1,25 @@
-.home-button {
+.login-btn {
   display: inline-block;
   text-align: center;
-  background-color: white;
+  background-color: $lightgray;
   text-transform: uppercase;
   color:  $darkblue;
   padding: 10px 20px;
   width: 280px;
-  margin-bottom: 25px;
+  margin: 20px 0;
   border-radius: 3px;
 }
 
-.home-button:hover {
-  text-decoration: none;
-  color: greyli;
+.login-btn:hover {
+  color: $grayblue;
 }
-
 
 .dark-button {
   display: inline-block;
   text-align: center;
   background-color: $darkblue ;
   text-transform: uppercase;
-  color: white;
+  color: $lightgray;
   padding: 10px 20px;
   width: 140px;
   margin-top: 20px;
@@ -32,20 +30,18 @@
 
 .dark-button:hover {
   text-decoration: none;
+  color: $grayblue;
 }
 
-.login-btn {
-  display: inline-block;
-  text-align: center;
-  background-color: white;
-  text-transform: uppercase;
-  color:  $darkblue;
-  padding: 10px 20px;
-  width: 280px;
-  margin: 25px 0;
-  border-radius: 3px;
+
+.form-btn {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  color: $lightgray;
 }
 
-.login-btn:hover {
-  color: grey;
+.form-btn:hover {
+  text-decoration: none;
+  color: $grayblue;
 }

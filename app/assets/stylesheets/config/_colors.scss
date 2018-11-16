@@ -10,9 +10,14 @@ $gray: #000000;
 // $light-gray: #F4F4F4;
 $horizon: #5D8196;
 
-$darkblue: #0D1A24;  //home sign up & login background, navbar color
-$lightblue: #5D8196; //for buttons
-$light-gray: #F8F9FA; //background for all pages
-$bright-blue: #00C4FF; //additional touch
+
+$darkblue: #0D1A24;  //home sign up & login background, navbar, footer color
+$lightblue: #5D8196; //???, links when hovering
+
+$lightgray: #F8F9FA; //replace sharp whites
+$light-gray: #F8F9FA; // background for all pages, home page border
+
+$bright-blue: #00C4FF; // additional touch
+
 $middle-gray: #EFEFEF; //for show pages background
-$grayblue: #718C9E;  //header for lessons index page
+$grayblue: #718C9E;  //header for lessons index page, login-btn hover
