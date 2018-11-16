@@ -3,11 +3,17 @@ class LessonsController < ApplicationController
     @lessons = Lesson.all
     @show = params[:show] || "Open"
     @user = current_user
-    if params[:user_id]
+
+    if params[:user_id] && params[:query]
+      @lessons = Lesson.search_by_name_and_description(params[:query]).where(user: @user)
+    elsif params[:user_id]
       @lessons = Lesson.where(user: @user)
+    elsif params[:query].present?
+      @lessons = Lesson.search_by_name_and_description(params[:query]).where.not(user: @user)
     else
       @lessons = Lesson.where.not(user: @user)
     end
+
     @lessons = @lessons.where(status: @show)
   end
 

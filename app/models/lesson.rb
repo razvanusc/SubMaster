@@ -22,6 +22,13 @@ class Lesson < ApplicationRecord
     return "URGENT!!!" if time < 24
   end
 
+  include PgSearch
+  pg_search_scope :search_by_name_and_description,
+    against: [ :name, :description ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   # def image
   #   if lesson.subject == "crossfit"
   #     background
