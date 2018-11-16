@@ -1,10 +1,12 @@
 <%= render 'shared/navbar' %>
-<div class="application-container-light">
-  <div class="container-fluid show-container">
 
+<div class="application-container-light">
+
+  <div class="container-fluid show-container">
     <div class="row">
 
       <div class="big-card-image">
+
         <div class="col-xs-12 text-center card-header">
           <p><%= @lesson.subject.name%></p>
         </div>
@@ -23,14 +25,14 @@
       </div>
 
       <div class="col-xs-12 show-links" >
-       <p>  <% if @lesson.bookings.count < 3 %>
-          <%= link_to "Sub this class", new_lesson_booking_path(@lesson)%>
+        <p><% if @lesson.bookings.count < 3 %>
+          <%= link_to "Sub this class", new_lesson_booking_path(@lesson), class:"dark-button"%>
           <% else %>
           <%= "Sorry, this class has enough bookings, try a different class!" %>
           <% end %>
         </p>
       </div>
+
     </div>
   </div>
-
 </div>
