@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
   <div class="application-container-light">
-    <div class="container-fluid show-container">
+    <div class="show-container">
       <!-- Header 1 -->
       <div class="row">
         <div class="col-xs-6 text-center index-header index-left <%= "active" unless params[:user_id].present? %>">
@@ -46,20 +46,20 @@
          <div class="long-card">
 
         <%= link_to lesson_path(lesson) do %>
-          <div class="long-card-img">
+        <div class= "long-card-img">
+          <%= image_tag "crossfit-small.jpg", width:130, height:80, background:"center" %>
             <div class="long-card-text">
-
               <p class="long-card-date"><%= lesson.start_time.strftime("%d/%m/%Y") %></p>
               <p class="long-card-day"><%= lesson.start_time.strftime("%a") %></p>
               <p class="long-card-time"><%= lesson.start_time.strftime("%H:%M") %></p>
             </div>
-          </div>
+        </div>
          <% end %>
 
           <div class="long-card-body">
             <p class="description"><%= lesson.subject.name %></p>
             <p class="address"><%= lesson.address %></p>
-            <p class="cost"><%= lesson.price %>€</p>
+            <p class="cost"><%= lesson.price %> €</p>
           </div>
           <div class="long-card-right">
             <p class="status"><%= lesson.status %></p>
@@ -70,7 +70,7 @@
     <% end %>
 
     <div class="show-links">
-      <%= link_to "Create new class", new_lesson_path%>
+      <%= link_to "Request to sub", new_lesson_path, class:"dark-button"%>
     </div>
   </div>
 </div>

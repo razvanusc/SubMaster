@@ -1,29 +1,30 @@
 .long-card {
   margin-top: 10px;
-  margin-left: auto;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: 10px;
+  // padding-left: 10px;
+  // padding-right: 10px;
   height: 100px;
-  width: auto;
-  background-color: $light-gray;
+  width: 95vw;
+  background-color: $lightgray;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
 .long-card-img {
-  width: 128px;
-  height: 100px;
-  left: -10px;
-  background: image-url("crossfit-small") center;
   position: relative;
+  background: center;
+}
+
+.long-card-img:hover {
+  opacity: 0.9;
 }
 
 .long-card-img p {
   font-size: 11px;
   font-weight: bolder;
-  margin-top: 15px;
-  text-align: center;
+  // margin-top: 15px;
+  // text-align: center;
   text-transform: uppercase;
 }
 
@@ -31,10 +32,10 @@
   position: relative;
   width: auto;
   height: 20px;
-  top: 80px;
-  background: rgba(13, 26, 36, 0.8);
   color: white;
+  background: rgba(13, 26, 36, 0.5);
 }
+
 .long-card-date {
   position: absolute;
   bottom: -10px;
@@ -55,27 +56,30 @@
 
 .long-card-body {
   flex-grow: 1;
-  padding-top: 17px;
+  padding-top: 18px;
 }
 
 .long-card-body p {
-  padding-left: 10px;
+  padding-left: 15px;
   font-size: 13px;
 }
 
 .long-card-right {
   width: 50px;
   height: 100px;
+  margin-right: 22px;
 }
 
 .long-card-right p {
   font-size: 13px;
-  width: 10px;
-  margin-top: 9px;
+  margin-top: 10px;
+
 }
 p.description {
   font-size: 14px;
-  line-height: 0px;
+  line-height: 125%;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
 }
 p.address {
   color: #C4C4C4;
@@ -83,11 +87,13 @@ p.address {
 }
 p.status {
   color: $yellow;
+  text-align: left;
 }
 p.duration {
-  width: 50px;
-  padding-top: 30.7px;
+  padding-top: 29px;
+  text-align: left;
 }
 p.cost {
-  padding-top: 10px;
+  padding-bottom: 6px;
+  font-weight: bolder;
 }
