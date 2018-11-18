@@ -41,10 +41,30 @@
 // }
 
 .container-fluid {
-  max-width: 375px;
+  min-width: 375px;
+  max-width: 750px;
 }
 
+.thumbnail {
+  border: 1px solid rgba(230, 126, 34, 0.3);
+  h3 {
+    text-transform: uppercase;
+    color: $darkblue;
+    font-weight: lighter;
+  }
+  p {
+    color: $darkblue;
+    font-weight: lighter;
+  }
+}
 
+.thumbnail:hover {
+  opacity: 0.8;
+
+}
+.orange {
+  color: $orange;
+}
 // html tags
 
 body{

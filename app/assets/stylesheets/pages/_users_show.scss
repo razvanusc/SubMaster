@@ -5,12 +5,14 @@
   overflow: scroll;
 }
 
-.user-show-content{
-  padding: 20px 15px 20px 15px;
+.user-show-icons{
+  width: 150px;
+
   ul {
     list-style-type: none;
     display: flex;
     justify-content: space-around;
+    padding: 0;
   }
 
   .fas {
@@ -19,6 +21,12 @@
   .fab {
     font-size: 20px;
   }
+}
+
+.user-show-content{
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-around;
 }
 
 

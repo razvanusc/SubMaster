@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 
 .jumbo-img {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),image-url("gym") top;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)),image-url("cover") center;
   background-size: cover;
   height: 60vh;
   display: flex;
@@ -12,13 +12,23 @@
     color: $lightgray;
   }
   p {
-    opacity: 0.6;
+    opacity: 0.8;
   }
 }
 
-.home-body p {
+.thumbnail-row {
+  margin: 20px 0;
+}
+
+.home-body {
+  min-height: 30 vh;
+}
+.home-body h2 {
   padding: 10px;
-  border-top: 1px solid $lightblue;
+  border-top: 1px solid rgba(230, 126, 34, 0.3);
   font-weight: lighter;
 }
 
+.home-body p {
+  padding: 0 20px;
+}

@@ -1,44 +1,108 @@
 <%= render 'shared/navbar' %>
-<div class="application-container-dark">
+
+<div class="application-container-light">
  <div class="jumbotron jumbo-img">
    <h1>SubMaster</h1>
    <p>"Find your perfect sub easily"</p>
  </div>
-<div class="container-fluid">
+
+<div class="container">
   <% if user_signed_in? %>
     <div class="row">
       <div class="col-xs-12 text-center">
-        <%= link_to "View open classes", lessons_path, class: "login-btn"%>
+        <%= link_to "View open classes", lessons_path, class: "dark-button"%>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12 text-center">
-        <%= link_to "Request a sub", new_lesson_path, class: "login-btn"%>
+        <%= link_to "Request a sub", new_lesson_path, class: "dark-button"%>
       </div>
     </div>
   <% else %>
     <div class="row">
       <div class="col-xs-12 text-center">
-        <%= link_to "Sign Up", new_user_registration_path, class: "login-btn"%>
+        <%= link_to "Sign Up", new_user_registration_path, class: "dark-button"%>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12 text-center">
-        <%= link_to "Log In", new_user_session_path, class: "login-btn"%>
+        <%= link_to "Log In", new_user_session_path, class: "dark-button"%>
       </div>
     </div>
   <%end%>
-    <div class="row">
-      <div class="col-xs-12 text-center home-body">
-        <h2> For busy teachers</h2>
-        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
-      </div>
+
+  <div class="row thumbnail-row">
+    <div class="col-xs-12 col-md-3">
+      <%=link_to lessons_path  do %>
+        <div class="thumbnail">
+          <%= image_tag("gym_ladies", size: "250x150")%>
+          <div class="caption text-center">
+            <h3>Browse Classes</h3>
+            <p>Set your field(s) of expertise to see only relevant classes you could sub.</p>
+          </div>
+        </div>
+      <%end %>
     </div>
-    <div class="row">
-      <div class="col-xs-12 text-center home-body">
-        <h2> For studio managers</h2>
-        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
-      </div>
+
+    <div class="col-xs-12 col-md-3">
+      <%=link_to new_lesson_path do %>
+        <div class="thumbnail">
+          <%= image_tag("kickboxing", size: "250x150") %>
+          <div class="caption text-center">
+            <h3>Find Your Sub</h3>
+            <p>Post your class to find the substitute teacher who suits the best to the class.</p>
+          </div>
+        </div>
+      <%end %>
     </div>
+
+    <div class="col-xs-12 col-md-3">
+      <%=link_to lessons_path  do %>
+        <div class="thumbnail">
+          <%= image_tag("gym1", size: "250x150") %>
+          <div class="caption text-center">
+            <h3>Check Status</h3>
+            <p>Stay on top of the subbing process at all times with only one click.</p>
+          </div>
+        </div>
+      <%end %>
+    </div>
+
+    <div class="col-xs-12 col-md-3">
+      <%=link_to "#about"  do %>
+        <div class="thumbnail">
+          <%= image_tag("bodybalance", size: "250x150") %>
+          <div class="caption text-center">
+            <h3><span class="orange"> New Features </span></h3>
+            <p>Manage sublist per studio, extend sub-requests, view stats, evaluate processes.</p>
+          </div>
+        </div>
+      <%end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 text-center home-body">
+      <h2> For teachers</h2>
+      <p>Are you a dedicated teacher and passionate about your students? Do you want to leave your students in good hands when you are not able to teach yourself? We know, finding a substitue teacher through emails and whatsapp messages can be a confusing, sometimes stressful process. </p>
+
+      <p>To ease up the pain, we created SubMaster, where you can easily create an "open class" to which a substitute teacher can respond. You can see how many people your request will reach, you can see responses, and give your class to the teacher that suits the job the best. You can manage everything on one page so that you can focus on your students or on your personal matters while you are away. </p>
+      <p>It's so simple, so why not give it a try? </p>
+
+      <%= link_to "Sign Up", new_user_registration_path, class: "dark-button"%>
+    </div>
+    <div class="col-xs-12  col-md-6 text-center home-body" id="about">
+      <h2> For businesses</h2>
+      <p>Studios, gyms and other businesses can have very different ways of handling the task of finding a substitute teacher in the absence of the fixed teacher. In our future plans, we would like to collaborate with studios and help streamlining their processes so they can not only make the subbing process more resourceful but also add value to the entire subbing process. We are thinking about: creating closed group of teachers per studio, giving recommendations for the best suiting teacher, show statistics to pinpoint issues. </p>
+      <p> If you have ideas about features you would like to see in our SubMaster app, you can also help us by filling in our short questionnaire. Our main goal is to build a useful app therefore your input is much appreciated. </p>
+      <%= link_to "Feedback", new_user_registration_path, class: "dark-button"%>
+    </div>
+    <div class="col-xs-12 text-center home-body">
+      <h2> Contact us</h2>
+      <p>Do you have any questions about the app? We would like to hear them! Feel free to get in touch via email. </p>
+      <%= link_to "Email", new_user_registration_path, class: "dark-button"%>
+    </div>
+  </div>
+
   </div>
 </div>
