@@ -29,16 +29,18 @@
         <p><strong>Additional info: </strong><%= @lesson.description %> </p>
       </div>
 
-      <div class="col-xs-12 show-links" >
-        <p><% if @lesson.bookings.count < 3 %>
-          <%= link_to "Sub this class", new_lesson_booking_path(@lesson), class:"dark-button"%>
-          <% else %>
-          <%= "Sorry, this class has enough bookings, try a different class!" %>
-          <% end %>
-        </p>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <p><% if @lesson.bookings.count < 3 %>
+            <%= link_to "Sub this class", new_lesson_booking_path(@lesson), class:"dark-button"%>
+            <% else %>
+            <%= "Sorry, this class has enough bookings, try a different class!" %>
+            <% end %>
+          </p>
+          <p><%= link_to "Edit this class", edit_lesson_path(@lesson)%> </p>
+        </div>
       </div>
 
-    </div>
   </div>
 </div>
 
