@@ -1,48 +1,51 @@
 <%= render 'shared/navbar' %>
-
 <div class="application-container-light">
+  <div class="container show-container">
 
-  <div class="container-fluid show-container">
-    <div class="row">
-
-      <div class="big-card-image">
-
-        <div class="col-xs-12 text-center card-header">
-          <p><%= @lesson.subject.name%></p>
-        </div>
-        <div class="col-xs-12 text-center card-bottom">
-          <p><%= @lesson.status%></p>
-        </div>
-      </div>
-
-      <div class="col-xs-12 show-content">
-        <p><strong> <%= @lesson.urgent %> </strong> </p>
-        <p><strong>Time: </strong> <%= @lesson.start_time.strftime("%H:%M") %></p>
-        <p><strong>Duration: </strong><%= @lesson.duration %> min. </p>
-        <p><strong>Compensation: </strong><%= @lesson.price %> € </p>
-        <p><strong>Address: </strong><%= @lesson.address %> </p>
-        <p><strong>Requesting teacher: </strong>
-          <%= link_to user_path(@lesson.user) do %>
-          <%= @lesson.user.first_name %> <%= @lesson.user.last_name %>
-          <% end %>
-        </p>
-        <p><strong>Additional info: </strong><%= @lesson.description %> </p>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <p><% if @lesson.bookings.count < 3 %>
-            <%= link_to "Sub this class", new_lesson_booking_path(@lesson), class:"dark-button"%>
-            <% else %>
-            <%= "Sorry, this class has enough bookings, try a different class!" %>
-            <% end %>
-          </p>
-          <p><%= link_to "Edit this class", edit_lesson_path(@lesson)%> </p>
-        </div>
-      </div>
-
+  <div class="big-card-image">
+    <div class="col-xs-12 text-center card-header">
+      <p><%= @lesson.subject.name%></p>
+    </div>
+    <div class="col-xs-12 text-center card-bottom">
+      <p><%= @lesson.status%></p>
+    </div>
   </div>
-</div>
+
+  <div class="col-xs-12 show-content user-show-content text-left">
+    <p><strong> <%= @lesson.urgent %> </strong> </p>
+    <p><strong>Date: </strong> <%= @lesson.start_time.strftime("%H:%M") %></p>
+    <p><strong>Time: </strong> <%= @lesson.start_time.strftime("%H:%M") %></p>
+    <p><strong>Duration: </strong><%= @lesson.duration %> min. </p>
+    <p><strong>Compensation: </strong><%= @lesson.price %> € </p>
+    <p><strong>Address: </strong><%= @lesson.address %> </p>
+    <p><strong>Requesting teacher: </strong>
+
+    <% if @lesson.user.first_name  || @lesson.user.last_name %>
+     <%= link_to user_path(@lesson.user) do %>
+        <%= @lesson.user.first_name %> <%= @lesson.user.last_name %>
+        <% end %>
+    <% else %>
+      <%= link_to user_path(@lesson.user) do %>
+         <%= @lesson.user.email%>
+        <% end %>
+    <% end %>
+
+    </p>
+    <p><strong>Additional info: </strong><%= @lesson.description %> </p>
+  </div>
+
+
+  <div class="col-xs-12 text-center">
+    <p><% if @lesson.bookings.count < 3 %>
+      <%= link_to "Sub this class", new_lesson_booking_path(@lesson), class:"dark-button"%>
+      <% else %>
+      <%= "Sorry, this class has enough bookings, try a different class!" %>
+      <% end %>
+    </p>
+    <p><%= link_to "Edit this class", edit_lesson_path(@lesson)%> </p>
+  </div>
+
+
 
 <div
   id="map"
