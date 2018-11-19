@@ -1,7 +1,7 @@
 <%= render "shared/navbar" %>
 
 <div class="application-container-light">
-  <div class="show-container">
+  <div class="show-container container-fluid">
     <div class="row">
 
       <div class="big-card-image">
@@ -13,21 +13,23 @@
         </div>
       </div>
 
-      <div class="col-xs-12 text-center">
-
-          <h3 class="confirm-text"><strong>Please Confirm:</strong> <p class="confirm-name"><%= @lesson.description %></p></h3>
-          <div class="devise-input-form">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h3>*Please confirm to sub the following class:</h3>
+            <p><strong> Class: </strong> <%= @lesson.description %></p>
             <%= simple_form_for([@lesson, @booking]) do |f| %>
-              <p class="confirm-urgent"><%= @lesson.urgent %></p>
-              <p class="confirm-address"><strong>Location:</strong> <%= @lesson.address %></p>
-              <p class="confirm-time"><strong>Start Time:</strong> <%= @lesson.start_time.strftime("%H:%M") %></p>
-              <p class="confirm-duration"><strong>Duration:</strong> <%= @lesson.duration %> min.</p>
-              <p class="confirm-cost"><strong>Price:</strong> <%= @lesson.price %>€</p>
-              <%= f.submit "Confirm Booking", class: "dark-button" %>
-            <% end %>
-          </div>
+              <p><%= @lesson.urgent %></p>
+              <p><strong>Location:</strong> <%= @lesson.address %></p>
+              <p><strong>Start Time:</strong> <%= @lesson.start_time.strftime("%H:%M") %></p>
+              <p><strong>Duration:</strong> <%= @lesson.duration %> min.</p>
+              <p><strong>Compensation:</strong> <%= @lesson.price %> €</p>
+              <%= f.submit "Sub this class", class: "dark-button text-center" %>
+           <% end %>
+           <p class="small-letters"> *Once clicked, the status of the class will turn "pending". </p>
         </div>
-      </div>
+
+     </div>
     </div>
   </div>
 </div>
+

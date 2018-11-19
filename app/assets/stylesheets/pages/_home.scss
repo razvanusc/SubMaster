@@ -8,9 +8,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  h1 {
+    text-shadow: 1px 1px $grayblue;
+  }
   h1, p {
     color: $lightgray;
+    font-weight: lighter;
   }
+
   p {
     opacity: 0.8;
   }
@@ -31,4 +36,9 @@
 
 .home-body p {
   padding: 0 20px;
+  font-weight: lighter;
+}
+
+#home-background{
+  background-color: $middle-gray;
 }
