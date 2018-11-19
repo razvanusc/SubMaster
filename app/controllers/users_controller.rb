@@ -21,7 +21,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+
+    # subject_ids = params[:user][:subject_ids]
+    # @user.subject_ids = subject_ids
+
     authorize @user
+
+
     if @user.update(user_params)
       redirect_to user_path(current_user)
     else
@@ -32,6 +38,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password,
     :phone_number, :bio, :website_url, :facebook_url, :instagram_url, :available,
-    :address, :photo, :photo_cache, weekday_preference: [], daytime_preference: [])
+    :address, :photo, :photo_cache, weekday_preference: [], daytime_preference: [], subject_ids: [])
   end
 end

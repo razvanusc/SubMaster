@@ -15,6 +15,7 @@
               <%= f.input :instagram_url %>
               <%= f.input :available %>
               <%= f.input :address %>
+              <%= f.input :subject_ids, as: :check_boxes, collection: Subject.all %>
               <%= f.input :weekday_preference, as: :check_boxes, collection: [['Monday', 1],
               ['Tuesday', 2], ['Wednesday', 3], ['Thursday', 4], ['Friday', 5], ['Saturday', 6],
               ['Sunday', 7]] %>

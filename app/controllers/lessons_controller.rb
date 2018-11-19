@@ -1,17 +1,40 @@
 class LessonsController < ApplicationController
   def index
-    @lessons = policy_scope(Lesson).all.future_lessons
     @show = params[:show] || "Open"
     @user = current_user
 
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+    end
+
+    @lessons = policy_scope(Lesson).future_lessons
+
     if params[:user_id] && params[:query]
-      @lessons = @lessons.search_by_name_and_description(params[:query]).where(user: @user)
+      @lessons = @lessons
+                 .search_by_name_and_description(params[:query])
+                 .where(user: @user)
     elsif params[:user_id]
       @lessons = @lessons.where(user: @user)
     elsif params[:query].present?
-      @lessons = @lessons.search_by_name_and_description(params[:query]).where.not(user: @user)
+      if params[:show] == "Open"
+        @lessons = @lessons
+                   .search_by_name_and_description(params[:query])
+                   .where.not(user: @user)
+                   .preferences(current_user)
+      else
+        @lessons = @lessons
+                   .search_by_name_and_description(params[:query])
+                   .where.not(user: @user)
+      end
     else
-      @lessons = @lessons.where.not(user: @user)
+      if params[:show] == "Open"
+        @lessons = @lessons
+                   .search_by_name_and_description(params[:query])
+                   .where.not(user: @user)
+                   .preferences(current_user)
+      else
+      @lessons = @lessons.where.not(user: @user).preferences(current_user)
+      end
     end
 
     @lessons = @lessons.where(status: @show)
