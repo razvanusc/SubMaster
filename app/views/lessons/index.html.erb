@@ -1,23 +1,4 @@
 <%= render 'shared/navbar' %>
-<button onclick="myFunction()"><i class="fas fa-search"></i></button>
-
-<div id="myDIV">
-  <% query_path = nil %>
-  <% if params[:user_id] %>
-    <% query_path = user_lessons_path(@user) %>
-  <% else %>
-    <% query_path = lessons_path %>
-  <% end %>
-
-  <%= form_tag query_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control", id:"search-bar",
-    placeholder: "Find a lesson"
-  %>
-<% end %>
-</div>
-
   <div class="application-container-light">
     <div class="show-container">
       <!-- Header 1 -->
@@ -60,6 +41,24 @@
         </div>
 
       <% end %>
+
+    <div id="myDIV">
+      <% query_path = nil %>
+      <% if params[:user_id] %>
+        <% query_path = user_lessons_path(@user) %>
+      <% else %>
+        <% query_path = lessons_path %>
+      <% end %>
+
+      <%= form_tag query_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a lesson"
+      %>
+    <% end %>
+    </div>
+
 
     <% @lessons.each do |lesson| %>
          <div class="long-card">
@@ -108,8 +107,10 @@
 
     <% end %>
 
-    <div class="show-links">
+    <div class="row">
+      <div class="col-xs-12 text-center">
       <%= link_to "Request to sub", new_lesson_path, class:"dark-button"%>
+      </div>
     </div>
   </div>
 </div>
