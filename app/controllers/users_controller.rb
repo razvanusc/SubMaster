@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
+    authorize @user
+
     @users = User.where.not(latitude: nil, longitude: nil)
 
     @markers = @users.map do |user|
@@ -14,14 +16,16 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    authorize @user
   end
 
   def update
     @user = User.find(params[:id])
+    authorize @user
     if @user.update(user_params)
       redirect_to user_path(current_user)
     else
-      raise "It failed"
+      render :edit
     end
   end
 
