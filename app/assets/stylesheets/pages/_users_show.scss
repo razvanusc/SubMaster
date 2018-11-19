@@ -6,13 +6,12 @@
 }
 
 .user-show-icons{
-  width: 150px;
-
+  // width: 150px;
   ul {
     list-style-type: none;
     display: flex;
     justify-content: space-around;
-    padding: 0;
+    padding-top: 10px;
   }
 
   .fas {
@@ -27,6 +26,7 @@
   padding: 10px 15px;
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
 }
 
 .user-details{

@@ -1,34 +1,34 @@
 <%= render 'shared/navbar' %>
 <div class="application-container-light">
-  <div class="container ">
+  <div class="container show-container">
 
-    <div class="row">
-      <div class="big-card-image">
-        <div class="col-xs-12 text-center card-header">
+    <div class="big-card-image">
+      <div class="col-xs-12 text-center card-header">
+        <% if @user.first_name  || @user.last_name %>
           <p><%= @user.first_name%> <%= @user.last_name%></p>
-        </div>
-        <div class="col-xs-12 text-center card-bottom">
-          <p>Details</p>
-        </div>
+        <% else %>
+          <p><%= @user.email%></p>
+        <% end %>
+
+      </div>
+      <div class="col-xs-12 text-center card-bottom">
+        <p>Details</p>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-xs-12 user-show-content">
-        <div class= "user-show-icons text-center">
-        <!-- these should be clickable icons -->
-          <ul>
-            <li> <%= link_to "http://www.facebook.com/krystonen" do %>
-              <i class="fab fa-facebook"> </i> <% end %> </li>
-            <li><%= link_to "http://www.instagram.com/krystonen" do %>
-              <i class="fab fa-instagram"></i> <% end %> </li>
-            <li><%= link_to "http://www.instagram.com/krystonen" do %>
-              <i class="fas fa-link"></i> <% end %> </li>
-          </ul>
-        </div>
+      <div class= "col-xs-12 user-show-icons text-center">
+      <!-- these should be clickable icons -->
+        <ul>
+          <li> <%= link_to "http://www.facebook.com/krystonen" do %>
+            <i class="fab fa-facebook"> </i> <% end %> </li>
+          <li><%= link_to "http://www.instagram.com/krystonen" do %>
+            <i class="fab fa-instagram"></i> <% end %> </li>
+          <li><%= link_to "http://www.instagram.com/krystonen" do %>
+            <i class="fas fa-link"></i> <% end %> </li>
+        </ul>
       </div>
 
-      <div class="col-xs-12 user-show-content">
+      <div class="col-xs-12 show-content user-show-content">
         <div class="user-details text-left">
           <p><strong>Email:</strong> <%= @user.email%></p>
           <p><strong>Phone number:</strong> <%= @user.phone_number%></p>
@@ -43,20 +43,19 @@
           <p><strong>Bio: </strong> <%= @user.bio%></p>
         </div>
       </div>
-    </div>
+
 
       <!-- the below details should be only visible to creator and who booked a class or we should ask user what he/she prefers -->
 
     <!--  links to be added: add a class, edit settings -->
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <p><%=link_to 'View classes', lessons_path, class:"dark-button" %> </p>
-          <% if policy(@user).edit? %>
-          <p><%=link_to 'Edit profile page', edit_user_path %> </p>
-          <% end %>
-        </div>
-      </div>
 
+      <div class="col-xs-12 text-center">
+        <p><%=link_to 'View classes', lessons_path, class:"dark-button" %> </p>
+        <% if policy(@user).edit? %>
+        <p><%=link_to 'Edit profile page', edit_user_path %> </p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 

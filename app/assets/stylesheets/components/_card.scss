@@ -1,19 +1,18 @@
 .long-card {
   margin-top: 10px;
-  margin-left: 10px;
-  // padding-left: 10px;
-  // padding-right: 10px;
-  height: 100px;
-  width: 95vw;
+  height: 120px;
+  width: 350px;
   background-color: $lightgray;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  p {
+    font-size: 13px;
+  }
 }
 
 .long-card-img {
   position: relative;
-  background: center;
 }
 
 .long-card-img:hover {
@@ -23,8 +22,6 @@
 .long-card-img p {
   font-size: 11px;
   font-weight: bolder;
-  // margin-top: 15px;
-  // text-align: center;
   text-transform: uppercase;
 }
 
@@ -33,11 +30,7 @@
   width: auto;
   height: 20px;
   color: white;
-  background: rgba(13, 26, 36, 0.5);
-}
-
-.long-card-text:hover {
-  opacity: 0.9;
+  background: rgba(13, 26, 36, 0.8);
 }
 
 .long-card-date {
@@ -59,45 +52,32 @@
 }
 
 .long-card-body {
-  flex-grow: 1;
+  // flex-grow: 1;
   padding-top: 18px;
-}
-
-.long-card-body p {
-  padding-left: 15px;
-  font-size: 13px;
+  line-height: 1;
 }
 
 .long-card-right {
-  width: 50px;
-  height: 100px;
-  margin-right: 22px;
+  padding-top: 4px;
+  line-height: 3;
 }
 
-.long-card-right p {
-  font-size: 13px;
-  margin-top: 10px;
-
-}
 p.description {
-  font-size: 14px;
   line-height: 125%;
   letter-spacing: 1.2px;
   text-transform: uppercase;
+  font-size: 14px;
 }
+
 p.address {
   color: #C4C4C4;
   text-transform: uppercase;
 }
 p.status {
   color: $yellow;
-  text-align: left;
 }
-p.duration {
-  padding-top: 29px;
-  text-align: left;
-}
+
 p.cost {
-  padding-bottom: 6px;
   font-weight: bolder;
+  line-height: 1;
 }
