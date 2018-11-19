@@ -1,13 +1,19 @@
-<ul>
-<% @bookings.each do |booking| %>
-  <li>
-  <p><%= booking.id %></p>
-  <p>Status: <%= booking.status %></p>
-  <p>Lesson status: <%= booking.lesson.status %></p>
-  <p>Description: <%= booking.lesson.description %></p>
-  <p>Start Time: <%= booking.lesson.start_time %></p>
-  <p>Duration: <%= booking.lesson.duration %></p>
-  <p>Price: <%= booking.lesson.price %></p>
-  </li>
-<% end %>
-</ul>
+<%= render "shared/navbar" %>
+
+<div class="application-container-light">
+  <div class="container-fluid show-container">
+    <ul>
+      <% @bookings.each do |booking| %>
+        <li>
+          <p><%= booking.id %></p>
+          <p>Status: <%= booking.status %></p>
+          <p>Lesson status: <%= booking.lesson.status %></p>
+          <p>Description: <%= booking.lesson.description %></p>
+          <p>Start Time: <%= booking.lesson.start_time %></p>
+          <p>Duration: <%= booking.lesson.duration %></p>
+          <p>Price: <%= booking.lesson.price %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

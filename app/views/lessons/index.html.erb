@@ -12,7 +12,7 @@
   <%= form_tag query_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
+    class: "form-control", id:"search-bar",
     placeholder: "Find a lesson"
   %>
 <% end %>
