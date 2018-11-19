@@ -10,7 +10,7 @@
   <% if user_signed_in? %>
     <div class="row">
       <div class="col-xs-12 text-center">
-        <%= link_to "View open classes", lessons_path, class: "dark-button"%>
+        <%= link_to "View open classes", lessons_path(:show => "Open"), class: "dark-button"%>
       </div>
     </div>
     <div class="row">

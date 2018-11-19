@@ -26,23 +26,18 @@ class Lesson < ApplicationRecord
     where('start_time > ?', Time.zone.now)
   end
 
+  def self.preferences(user)
+    where('address = ?', user.address)
+    .where('ARRAY[?]::integer[] @> ARRAY[subject_id]::integer[]', user.subject_ids)
+  end
+
   include PgSearch
   pg_search_scope :search_by_name_and_description,
-    against: [ :name, :description ],
+    against: [:name, :description],
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-
-  # def image
-  #   if lesson.subject == "crossfit"
-  #     background
-  #   end
-  # end
-
-  # def status
-  #   bookings.any? {|b| b.status == 'Confirmed'} ? "Confirmed" : "Pending"
-  # end
 end
