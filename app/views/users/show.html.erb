@@ -1,8 +1,8 @@
 <%= render 'shared/navbar' %>
 <div class="application-container-light">
-  <div class=" show-container">
-    <div class="row">
+  <div class="container ">
 
+    <div class="row">
       <div class="big-card-image">
         <div class="col-xs-12 text-center card-header">
           <p><%= @user.first_name%> <%= @user.last_name%></p>
@@ -14,19 +14,18 @@
     </div>
 
     <div class="row">
-
       <div class="col-xs-12 user-show-content">
-
+        <div class= "user-show-icons text-center">
         <!-- these should be clickable icons -->
-        <ul>
-          <li> <%= link_to "http://www.facebook.com/krystonen" do %>
-            <i class="fab fa-facebook"> </i> <% end %> </li>
-          <li><%= link_to "http://www.instagram.com/krystonen" do %>
-            <i class="fab fa-instagram"></i> <% end %> </li>
-          <li><%= link_to "http://www.instagram.com/krystonen" do %>
-            <i class="fas fa-link"></i> <% end %> </li>
-        </ul>
-
+          <ul>
+            <li> <%= link_to "http://www.facebook.com/krystonen" do %>
+              <i class="fab fa-facebook"> </i> <% end %> </li>
+            <li><%= link_to "http://www.instagram.com/krystonen" do %>
+              <i class="fab fa-instagram"></i> <% end %> </li>
+            <li><%= link_to "http://www.instagram.com/krystonen" do %>
+              <i class="fas fa-link"></i> <% end %> </li>
+          </ul>
+        </div>
       </div>
 
       <div class="col-xs-12 user-show-content">
@@ -43,8 +42,8 @@
           <p><strong>Address: </strong><%= @user.address%></p>
           <p><strong>Bio: </strong> <%= @user.bio%></p>
         </div>
-      </p>
-
+      </div>
+    </div>
 
       <!-- the below details should be only visible to creator and who booked a class or we should ask user what he/she prefers -->
 
@@ -55,6 +54,7 @@
           <p><%=link_to 'Edit profile page', edit_user_path %> </p>
         </div>
       </div>
+
   </div>
 </div>
 

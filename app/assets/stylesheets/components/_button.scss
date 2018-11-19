@@ -33,6 +33,18 @@
   color: $grayblue;
 }
 
+
+.btn:focus {
+  outline: none;
+}
+
+.small-button-dark:hover {
+  text-decoration: none;
+  color: $grayblue;
+  background-color: $darkblue ;
+  outline: none;
+}
+
 .form-btn {
   display: flex;
   justify-content: center;
@@ -44,3 +56,4 @@
   text-decoration: none;
   color: $grayblue;
 }
+
