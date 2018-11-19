@@ -22,6 +22,10 @@ class Lesson < ApplicationRecord
     return "URGENT!!!" if time < 24
   end
 
+  def self.future_lessons
+    where('start_time > ?', Time.zone.now)
+  end
+
   include PgSearch
   pg_search_scope :search_by_name_and_description,
     against: [ :name, :description ],
