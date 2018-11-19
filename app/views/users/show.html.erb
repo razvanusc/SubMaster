@@ -51,7 +51,9 @@
       <div class="row">
         <div class="col-xs-12 text-center">
           <p><%=link_to 'View classes', lessons_path, class:"dark-button" %> </p>
+          <% if policy(@user).edit? %>
           <p><%=link_to 'Edit profile page', edit_user_path %> </p>
+          <% end %>
         </div>
       </div>
 
