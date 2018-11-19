@@ -89,4 +89,8 @@ legend {
   border-bottom: 0;
   font-size: 16px;
 }
-
+.date-field,
+.time-field {
+  background-color: $darkblue;
+  border: 2px dotted #FFFFFF;
+}
