@@ -1,6 +1,7 @@
+<%= render "shared/navbar" %>
 <h2>Edit this booking</h2>
 <div class="devise-input-form">
-<h4> Boat: <strong> <%= @booking.lesson.description %> <strong> </h4>
+<h4> Class: <strong> <%= @booking.lesson.description %> <strong> </h4>
 <h4>Owner: <strong> <%= @booking.user.first_name %>
   <%= @booking.user.last_name %> </strong></h4>
  <%= simple_form_for([@lesson, @booking]) do |f| %>
