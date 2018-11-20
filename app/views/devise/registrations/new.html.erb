@@ -1,14 +1,11 @@
 <%= render 'shared/navbar' %>
 <div class="application-container-dark">
-  <div class="container container-padding">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12">
-        <h2 class="sign-up-form">Sign up</h2>
-
+        <h2>Sign up</h2>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
-
-
             <%= f.input :email,
                         required: true,
                         autofocus: true ,
@@ -23,14 +20,13 @@
             <%= f.input :photo %>
             <%= f.input :photo_cache, as: :hidden %>
 
-
-          <div class="form-actions form-btn">
+          <div class="form-btn">
             <%= f.button :submit, "Sign up", class: "login-btn" %>
           </div>
         <% end %>
-        <div class="actions">
-          <%= render "devise/shared/links" %>
-        </div>
+      </div>
+      <div class="col-xs-12 text-center">
+        <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>
