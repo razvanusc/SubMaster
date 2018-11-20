@@ -1,11 +1,15 @@
 <%= render "shared/navbar" %>
-<h2>Edit this booking</h2>
-<div class="devise-input-form">
-<h4> Class: <strong> <%= @booking.lesson.description %> <strong> </h4>
-<h4>Owner: <strong> <%= @booking.user.first_name %>
-  <%= @booking.user.last_name %> </strong></h4>
- <%= simple_form_for([@lesson, @booking]) do |f| %>
-   <%= f.input :status, collection: Booking.statuses.keys %>
-   <%= f.submit "Update booking"%>
- <% end %>
+
+<div class="application-container-light">
+  <div class="container text-center">
+
+    <h2>Lesson bookings</h2>
+    <p> Class: <strong> <%= @booking.lesson.description %> </strong> </p>
+    <p> Owner: <strong> <%= @booking.user.first_name %>
+      <%= @booking.user.last_name %> </strong></p>
+      <%= simple_form_for([@lesson, @booking]) do |f| %>
+       <%= f.input :status, collection: Booking.statuses.keys %>
+       <%= f.submit "Update booking"%>
+     <% end %>
+  </div>
 </div>

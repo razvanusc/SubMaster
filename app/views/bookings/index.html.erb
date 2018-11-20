@@ -1,19 +1,41 @@
 <%= render "shared/navbar" %>
-
 <div class="application-container-light">
-  <div class="container-fluid show-container">
-    <ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 text-center index-header index-left <%= "active" if @show == "Open" %>">
+        <%= link_to "Open", bookings_path(@booking, show:"Open")%>
+      </div>
+      <div class="col-xs-4 text-center index-header index-middle <%= "active" if @show == "Pending" %>">
+        <%= link_to "Pending", bookings_path(@booking, show: "Pending")%>
+      </div>
+      <div class="col-xs-4 text-center index-header index-right <%= "active" if @show == "Confirmed" %>">
+        <%= link_to "Covered", bookings_path(@user, show:"Confirmed")%>
+      </div>
+    </div>
+
+  <div class="long-card-container">
+    <h2 class="text-center"> Bookings</h2>
       <% @bookings.each do |booking| %>
-        <li>
-          <p><%= booking.id %></p>
-          <p>Status: <%= booking.status %></p>
-          <p>Lesson status: <%= booking.lesson.status %></p>
-          <p>Description: <%= booking.lesson.description %></p>
-          <p>Start Time: <%= booking.lesson.start_time %></p>
-          <p>Duration: <%= booking.lesson.duration %></p>
-          <p>Price: <%= booking.lesson.price %></p>
-        </li>
-      <% end %>
-    </ul>
+        <div class="long-card">
+        <div class="long-card-left">
+          <p>Status: <%= booking.status %> (<%= booking.id %>) </p>
+        <p>Start Time: <%= booking.lesson.start_date.strftime("%d/%m/%Y") %></p>
+        </div>
+        <div class= "long-card-body">
+          <p>ST:
+            <%= link_to user_path(booking.user) do %>
+            <%= booking.user.first_name %> <%= booking.user.last_name %>
+            <% end %> </p>
+          <p>RT: <%= booking.lesson.user.first_name %> <%= booking.lesson.user.last_name %> </p>
+        </div>
+        <div class="booking-card-right">
+            <p>Name: <%= booking.lesson.description %></p>
+            <p>Duration: <%= booking.lesson.duration %></p>
+            <p>Price: <%= booking.lesson.price %></p>
+        </div>
+            <%= link_to "Update status", edit_booking_path(booking),class:"dark-button" %></p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

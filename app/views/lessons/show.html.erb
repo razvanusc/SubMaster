@@ -36,22 +36,18 @@
     <p><strong>Additional info: </strong><%= @lesson.description %> </p>
   </div>
 
-
   <div class="col-xs-12 text-center">
-    <% if @lesson.user != current_user %>
-    <p><% if @lesson.bookings.count < 3 %>
-      <%= link_to "Sub this class", new_lesson_booking_path(@lesson), class:"dark-button"%>
-      <% else %>
-      <%= "Sorry, this class has enough bookings, try a different class!" %>
-      <% end %>
-    <% end %>
-    </p>
-    <% if policy(@lesson).edit? %>
-    <p><%= link_to "Edit this class", edit_lesson_path(@lesson)%> </p>
+
+
+    <% if @lesson.user != current_user && @lesson.bookings.count < 3 %>
+      <p> <%= link_to "Sub this class", new_lesson_booking_path(@lesson), class:"dark-button"%> </p>
+    <% elsif @lesson.user != current_user && @lesson.bookings.count < 3 %>
+      <p><%= "Sorry, this class has already three bookings, try to sub another class! "%> </p>
+    <% else %>
+        <p> <%= link_to "Manage bookings", bookings_path, class:"dark-button"%> </p>
+        <p><%= link_to "Edit this class", edit_lesson_path(@lesson)%> </p>
     <% end %>
   </div>
-
-
 
 <div
   id="map"

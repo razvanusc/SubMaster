@@ -97,8 +97,8 @@
           </div>
         <% end %>
           <div class="long-card-body">
-            <p class="description"><%= lesson.subject.name %></p>
-            <p class="address"><%= lesson.address %></p>
+            <p class="description"><%= lesson.subject.name.first(8)%></p>
+            <p class="address"><%= lesson.address.first(9) %></p>
             <% if lesson.user %>
               <% if lesson.user != current_user %>
                 <%=link_to user_path(lesson.user) do %>
@@ -122,7 +122,7 @@
 
       <div class="row">
         <div class="col-xs-12 text-center">
-          <p> <%= link_to "Request to sub", new_lesson_path, class:"dark-button"%> </p>
+          <p> <%= link_to "Request a sub", new_lesson_path, class:"dark-button"%> </p>
           <p><%= link_to "Edit settings", edit_user_path(current_user), class:"dark-button"%> </p>
         </div>
       </div>
