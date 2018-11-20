@@ -1,20 +1,9 @@
-label {
-  font-size: 16px;
-  font-weight: 400;
-  color: #C4C4C4;
-}
-
-.text-muted {
-  color: #C4C4C4;
-  font-size: 12px;
-}
-
 .form-control {
- display: block;
+ // display: block;
  width: 100%;
  padding: 6px 12px;
  font-size: 17px;
- line-height: 1.42857;
+ line-height: 1.4;
  color: #FFFFFF;
  background-color: transparent;
  background-image: none;
@@ -26,49 +15,9 @@ label {
  border-left: 0px transparent;
 }
 
-//form-control doesnt apply to all the buttons. so i specified the class to get it to work
-.form-control.string.email.required {
-  // width: 80%;
-  // margin: 34px;
-  // margin-bottom: 28px;
-  // margin-top: 0px;
+.checkbox-padding {
+  margin-left: 6px;
 }
-
-
-.form-control.numeric.integer.required {
-  // width: 80%;
-  // margin: 34px;
-  // margin-bottom: 28px;
-  // margin-top: 0px;
-}
-
-.form-control.string.required {
-  // width: 80%;
-  // margin: 34px;
-  // margin-bottom: 28px;
-  // margin-top: 0px;
-}
-
-.form-control.select.optional {
-  // width: 80%;
-  // margin: 34px;
-  // margin-bottom: 28px;
-  // margin-top: 0px;
-  // border-radius: none;
-}
-
-.form-control.mx-1.datetime.optional {
-  // width: 80%;
-  // margin: 34px;
-  // margin-bottom: 28px;
-  // margin-top: 0px;
-  // border-radius: none;
-}
-
-// .checkbox-padding {
-//   margin-left: 6px;
-// }
-
 
 
 .form-check label {
@@ -82,6 +31,17 @@ label {
   a:hover {
   color: $lightblue;
 }
+}
+
+.text-muted {
+  color: #C4C4C4;
+  font-size: 12px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #C4C4C4;
 }
 
 legend {
