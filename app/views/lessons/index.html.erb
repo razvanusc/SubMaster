@@ -88,7 +88,7 @@
             <%= image_tag "poledance.jpg", width:130, height:80, background:"center" %>
             <% end %>
               <div class="long-card-text">
-                <p class="long-card-date"><%= lesson.start_time.strftime("%d-%b") %></p>
+                <p class="long-card-date"><%= lesson.start_date.strftime("%d-%b") %></p>
                 <p class="long-card-day"><%= lesson.start_time.strftime("%a") %></p>
                 <p class="long-card-time"><%= lesson.start_time.strftime("%H:%M") %></p>
               </div>
