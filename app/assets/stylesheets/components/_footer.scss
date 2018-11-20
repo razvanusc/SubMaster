@@ -1,7 +1,7 @@
 .footer {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   min-height: 70px;
   padding: 0px 25px;
   color: rgba(13, 26, 36, 0.4);
@@ -38,5 +38,5 @@
 }
 
 .footer-text {
-  float: center;
+  // float: center;
 }

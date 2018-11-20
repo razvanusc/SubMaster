@@ -1,35 +1,34 @@
 <%= render "shared/navbar" %>
-
 <div class="application-container-light">
-  <div class="show-container container-fluid">
-    <div class="row">
+  <div class="container show-container">
 
-      <div class="big-card-image">
-        <div class="col-xs-12 text-center card-header">
-          <p><%= @lesson.subject.name %></p>
-        </div>
-        <div class="col-xs-12 text-center card-bottom">
-          <p><%= @lesson.status %></p>
-        </div>
+    <div class="big-card-image">
+      <div class="col-xs-12 text-center card-header">
+        <p><%= @lesson.subject.name %></p>
       </div>
-
-    <div class="row">
-        <div class="col-xs-12 text-center">
-            <h3>*Please confirm to sub the following class:</h3>
-            <p><strong> Class: </strong> <%= @lesson.description %></p>
-            <%= simple_form_for([@lesson, @booking]) do |f| %>
-              <p><%= @lesson.urgent %></p>
-              <p><strong>Location:</strong> <%= @lesson.address %></p>
-              <p><strong>Start Time:</strong> <%= @lesson.start_time.strftime("%H:%M") %></p>
-              <p><strong>Duration:</strong> <%= @lesson.duration %> min.</p>
-              <p><strong>Compensation:</strong> <%= @lesson.price %> €</p>
-              <%= f.submit "Sub this class", class: "dark-button text-center" %>
-           <% end %>
-           <p class="small-letters"> *Once clicked, the status of the class will turn "pending". </p>
-        </div>
-
-     </div>
+      <div class="col-xs-12 text-center card-bottom">
+        <p><%= @lesson.status %></p>
+      </div>
     </div>
+
+    <div class="col-xs-12  show-content user-show-content text-left">
+      <h3 class="text-center">*Please confirm to sub the following class:</h3>
+      <p><strong> Class: </strong> <%= @lesson.description %></p>
+
+      <%= simple_form_for([@lesson, @booking]) do |f| %>
+      <p><%= @lesson.urgent %></p>
+      <p><strong>Location:</strong> <%= @lesson.address %></p>
+      <p><strong>Start Time:</strong> <%= @lesson.start_time.strftime("%H:%M") %></p>
+      <p><strong>Duration:</strong> <%= @lesson.duration %> min.</p>
+      <p><strong>Compensation:</strong> <%= @lesson.price %> €</p>
+    </div>
+
+    <div class="col-xs-12 text-center">
+      <%= f.submit "Sub this class", class: "dark-button text-center" %>
+     <% end %>
+     <p class="small-letters"> *Once clicked, the status of the class will turn "pending". </p>
+    </div>
+
   </div>
 </div>
 
