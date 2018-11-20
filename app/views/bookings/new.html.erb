@@ -21,6 +21,7 @@
       <p><strong>Start Time:</strong> <%= @lesson.start_time.strftime("%H:%M") %></p>
       <p><strong>Duration:</strong> <%= @lesson.duration %> min.</p>
       <p><strong>Compensation:</strong> <%= @lesson.price %> €</p>
+      <p><strong>Requesting teacher:</strong> <%= @lesson.user.first_name %>,  <%= @lesson.user.last_name %></p>
     </div>
 
     <div class="col-xs-12 text-center">
