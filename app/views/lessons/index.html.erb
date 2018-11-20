@@ -52,6 +52,7 @@
         <% end %>
 
         <%= form_tag query_path, method: :get do %>
+        <%= hidden_field_tag(:show, params[:show]) %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",

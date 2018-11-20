@@ -29,7 +29,6 @@ class LessonsController < ApplicationController
     else
       if params[:show] == "Open"
         @lessons = @lessons
-                   .search_by_name_and_description(params[:query])
                    .where.not(user: @user)
                    .preferences(current_user)
       else
