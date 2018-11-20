@@ -10,7 +10,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    record.lesson.user != user
   end
 
   def update?
