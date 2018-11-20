@@ -185,7 +185,7 @@ lesson8 = Lesson.create(start_time: DateTime.strptime("17:00", "%H:%M"),
     subject: subject_boxing,
     user: user2)
 
-lesson9 = Lesson.create(sstart_time: DateTime.strptime("18:00", "%H:%M"),
+lesson9 = Lesson.create(start_time: DateTime.strptime("18:00", "%H:%M"),
     start_date: DateTime.strptime("11/29/2018", "%m/%d/%Y"),
     duration: 60,
     price: 40,
