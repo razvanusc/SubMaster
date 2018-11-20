@@ -36,13 +36,17 @@
 
 
   <div class="col-xs-12 text-center">
+    <% if @lesson.user != current_user %>
     <p><% if @lesson.bookings.count < 3 %>
       <%= link_to "Sub this class", new_lesson_booking_path(@lesson), class:"dark-button"%>
       <% else %>
       <%= "Sorry, this class has enough bookings, try a different class!" %>
       <% end %>
+    <% end %>
     </p>
+    <% if policy(@lesson).edit? %>
     <p><%= link_to "Edit this class", edit_lesson_path(@lesson)%> </p>
+    <% end %>
   </div>
 
 
