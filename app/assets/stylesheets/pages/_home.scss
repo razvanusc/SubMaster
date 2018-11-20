@@ -9,15 +9,15 @@
   align-items: center;
   justify-content: center;
   h1 {
-    text-shadow: 1px 1px $grayblue;
+    // text-shadow: 1px 1px $grayblue;
   }
   h1, p {
     color: $lightgray;
-    font-weight: lighter;
+    // font-weight: lighter;
   }
 
   p {
-    opacity: 0.8;
+    opacity: 0.9;
   }
 }
 
