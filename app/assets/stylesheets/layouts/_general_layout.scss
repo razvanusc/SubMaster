@@ -2,6 +2,7 @@
 
 .application-container-light {
   flex-grow: 1;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   background-color: $lightgray;
@@ -10,6 +11,7 @@
 
 .application-container-dark {
   flex-grow: 1;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   // justify-content: space-around;
@@ -43,7 +45,7 @@
 
 .container-fluid {
   min-width: 375px;
-  max-width: 750px;
+  // max-width: 750px;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -58,6 +60,7 @@
 .long-card-container {
   background-color: $middle-gray;
   flex-grow: 1;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
