@@ -3,46 +3,46 @@
 <div class="application-container-light">
   <div class="container">
       <!-- Header 1 -->
+    <div class="row">
+      <div class="col-xs-6 text-center index-header index-left <%= "active" unless params[:user_id].present? %>">
+        <%= link_to "Sub a class", lessons_path%>
+      </div>
+      <div class="col-xs-6 text-center index-header index-right <%= "active" if params[:user_id].present? %>">
+        <%= link_to "Your requests", user_lessons_path(@user)%>
+      </div>
+    </div>
+
+      <!-- Header 2 with conditional -->
+    <% if params[:user_id] %>
       <div class="row">
-        <div class="col-xs-6 text-center index-header index-left <%= "active" unless params[:user_id].present? %>">
-          <%= link_to "Sub a class", lessons_path%>
+        <div class="col-xs-4 text-center index-header index-left <%= "active" if @show == "Open" %>">
+          <%= link_to "Open", user_lessons_path(@user, show:"Open")%>
         </div>
-        <div class="col-xs-6 text-center index-header index-right <%= "active" if params[:user_id].present? %>">
-          <%= link_to "Your requests", user_lessons_path(@user)%>
+        <div class="col-xs-4 text-center index-header index-middle <%= "active" if @show == "Pending" %>">
+          <%= link_to "Pending", user_lessons_path(@user, show: "Pending")%>
+        </div>
+        <div class="col-xs-4 text-center index-header index-right <%= "active" if @show == "Confirmed" %>">
+          <%= link_to "Covered", user_lessons_path(@user, show:"Confirmed")%>
         </div>
       </div>
 
-      <!-- Header 2 with conditional -->
+    <% else %>
 
-      <% if params[:user_id] %>
-        <div class="row">
-          <div class="col-xs-4 text-center index-header index-left <%= "active" if @show == "Open" %>">
-            <%= link_to "Open", user_lessons_path(@user, show:"Open")%>
-          </div>
-          <div class="col-xs-4 text-center index-header index-middle <%= "active" if @show == "Pending" %>">
-            <%= link_to "Pending", user_lessons_path(@user, show: "Pending")%>
-          </div>
-          <div class="col-xs-4 text-center index-header index-right <%= "active" if @show == "Confirmed" %>">
-            <%= link_to "Covered", user_lessons_path(@user, show:"Confirmed")%>
-          </div>
+      <div class="row">
+        <div class="col-xs-4 text-center index-header index-left <%= "active" if @show == "Open" %>">
+          <%= link_to "Open", lessons_path(@lesson, show:"Open")%>
         </div>
-
-      <% else %>
-
-        <div class="row">
-          <div class="col-xs-4 text-center index-header index-left <%= "active" if @show == "Open" %>">
-            <%= link_to "Open", lessons_path(@lesson, show:"Open")%>
-          </div>
-          <div class="col-xs-4 text-center index-header index-middle <%= "active" if @show == "Pending" %>">
-            <%= link_to "Pending", lessons_path(@lesson, show:"Pending")%>
-          </div>
-          <div class="col-xs-4 text-center index-header index-right <%= "active" if @show == "Confirmed" %>">
-            <%= link_to "Covered", lessons_path(@lesson, show:"Confirmed")%>
-          </div>
+        <div class="col-xs-4 text-center index-header index-middle <%= "active" if @show == "Pending" %>">
+          <%= link_to "Pending", lessons_path(@lesson, show:"Pending")%>
         </div>
+        <div class="col-xs-4 text-center index-header index-right <%= "active" if @show == "Confirmed" %>">
+          <%= link_to "Covered", lessons_path(@lesson, show:"Confirmed")%>
+        </div>
+      </div>
+    <% end %>
 
-      <% end %>
-
+    <!-- Search bar -->
+    <div class="row">
       <div id="myDIV">
         <% query_path = nil %>
         <% if params[:user_id] %>
@@ -52,79 +52,81 @@
         <% end %>
 
         <%= form_tag query_path, method: :get do %>
-        <% if params[:show] %>
-        <%= hidden_field_tag(:show, params[:show]) %>
-        <% end %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a lesson"
-        %>
-      <% end %>
+          <% if params[:show] %>
+            <%= hidden_field_tag(:show, params[:show]) %>
+          <% end %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "text-center",
+            placeholder: "Find a lesson"%>
+          <% end %>
       </div>
+    </div>
 
-  <div class="long-card-container">
-      <% @lessons.each do |lesson| %>
-        <div class="long-card">
-        <%= link_to lesson_path(lesson) do %>
-          <div class= "long-card-img">
-            <% if lesson.subject.name == "Crossfit" %>
-            <%= image_tag "crossfit.jpg", width:130, height:80, background:"center" %>
-            <% elsif lesson.subject.name == "Zumba" %>
-            <%= image_tag "zumba.jpg", width:130, height:80, background:"center" %>
-            <% elsif lesson.subject.name == "Yoga" %>
-            <%= image_tag "yoga.jpg", width:130, height:80, background:"center" %>
-            <% elsif lesson.subject.name == "Pilates" %>
-            <%= image_tag "pilates.jpg", width:130, height:80, background:"center" %>
-            <% elsif lesson.subject.name == "Aerobic" %>
-            <%= image_tag "aerobic.jpg", width:130, height:80, background:"center" %>
-            <% elsif lesson.subject.name == "Body Balance" %>
-            <%= image_tag "bodybalance.jpg", width:130, height:80, background:"center" %>
-            <% elsif lesson.subject.name == "Boxing" %>
-            <%= image_tag "boxing.jpg", width:130, height:80, background:"center" %>
-            <% elsif lesson.subject.name == "Dance" %>
-            <%= image_tag "dance.jpg", width:130, height:80, background:"center" %>
-            <% elsif lesson.subject.name == "Kick Boxing" %>
-            <%= image_tag "kickboxing.jpg", width:130, height:80, background:"center" %>
-            <% elsif lesson.subject.name == "Pole Dance" %>
-            <%= image_tag "poledance.jpg", width:130, height:80, background:"center" %>
-            <% end %>
-              <div class="long-card-text">
-                <p class="long-card-date"><%= lesson.start_date.strftime("%d-%b") %></p>
-                <p class="long-card-day"><%= lesson.start_time.strftime("%a") %></p>
-                <p class="long-card-time"><%= lesson.start_time.strftime("%H:%M") %></p>
-              </div>
-          </div>
-        <% end %>
-          <div class="long-card-body">
-            <p class="description"><%= lesson.subject.name.first(8)%></p>
-            <p class="address"><%= lesson.address.first(9) %></p>
-            <% if lesson.user %>
-              <% if lesson.user != current_user %>
-                <%=link_to user_path(lesson.user) do %>
-                  <p>by <%= lesson.user.first_name %> <%= lesson.user.last_name %></p>
-                <% end %>
-               <% else %>
-                <%=link_to user_path(lesson.user) do %>
-                  <p>My request</p>
+    <!-- Cards -->
+    <div class="row">
+      <div class="long-card-container">
+        <% @lessons.each do |lesson| %>
+          <div class="long-card">
+          <%= link_to lesson_path(lesson) do %>
+            <div class= "long-card-img">
+              <% if lesson.subject.name == "Crossfit" %>
+              <%= image_tag "crossfit.jpg", width:130, height:80, background:"center" %>
+              <% elsif lesson.subject.name == "Zumba" %>
+              <%= image_tag "zumba.jpg", width:130, height:80, background:"center" %>
+              <% elsif lesson.subject.name == "Yoga" %>
+              <%= image_tag "yoga.jpg", width:130, height:80, background:"center" %>
+              <% elsif lesson.subject.name == "Pilates" %>
+              <%= image_tag "pilates.jpg", width:130, height:80, background:"center" %>
+              <% elsif lesson.subject.name == "Aerobic" %>
+              <%= image_tag "aerobic.jpg", width:130, height:80, background:"center" %>
+              <% elsif lesson.subject.name == "Body Balance" %>
+              <%= image_tag "bodybalance.jpg", width:130, height:80, background:"center" %>
+              <% elsif lesson.subject.name == "Boxing" %>
+              <%= image_tag "boxing.jpg", width:130, height:80, background:"center" %>
+              <% elsif lesson.subject.name == "Dance" %>
+              <%= image_tag "dance.jpg", width:130, height:80, background:"center" %>
+              <% elsif lesson.subject.name == "Kick Boxing" %>
+              <%= image_tag "kickboxing.jpg", width:130, height:80, background:"center" %>
+              <% elsif lesson.subject.name == "Pole Dance" %>
+              <%= image_tag "poledance.jpg", width:130, height:80, background:"center" %>
+              <% end %>
+                <div class="long-card-text">
+                  <p class="long-card-date"><%= lesson.start_time.strftime("%d-%b") %></p>
+                  <p class="long-card-day"><%= lesson.start_time.strftime("%a") %></p>
+                  <p class="long-card-time"><%= lesson.start_time.strftime("%H:%M") %></p>
+                </div>
+            </div>
+          <% end %>
+            <div class="long-card-body">
+              <p class="description"><%= lesson.subject.name.first(8)%></p>
+              <p class="address"><%= lesson.address.first(9) %></p>
+              <% if lesson.user %>
+                <% if lesson.user != current_user %>
+                  <%=link_to user_path(lesson.user) do %>
+                    <p>by <%= lesson.user.first_name %> <%= lesson.user.last_name %></p>
+                  <% end %>
+                 <% else %>
+                  <%=link_to user_path(lesson.user) do %>
+                    <p>My request</p>
+                  <% end %>
                 <% end %>
               <% end %>
-            <% end %>
 
-            <p class="cost"><%= lesson.price %> €</p>
+              <p class="cost"><%= lesson.price %> €</p>
+            </div>
+            <div class="long-card-right">
+              <p class="status"><%= lesson.status %></p>
+              <p class="duration"><%= lesson.duration %> min.</p>
+            </div>
           </div>
-          <div class="long-card-right">
-            <p class="status"><%= lesson.status %></p>
-            <p class="duration"><%= lesson.duration %> min.</p>
+        <% end %>
+          <div class="row">
+            <div class="col-xs-12 text-center">
+              <p> <%= link_to "Request a sub", new_lesson_path, class:"dark-button"%> </p>
+              <p><%= link_to "Edit settings", edit_user_path(current_user), class:"dark-button"%> </p>
+            </div>
           </div>
-        </div>
-      <% end %>
-
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <p> <%= link_to "Request a sub", new_lesson_path, class:"dark-button"%> </p>
-          <p><%= link_to "Edit settings", edit_user_path(current_user), class:"dark-button"%> </p>
-        </div>
       </div>
     </div>
   </div>

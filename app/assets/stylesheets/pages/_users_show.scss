@@ -25,7 +25,11 @@
     font-size: 20px;
   }
 }
-
+.user-show-icons {
+  a:hover {
+    color: $orange;
+  }
+}
 .user-show-content{
   padding: 10px 30px 10px 5px;
   display: flex;
@@ -36,6 +40,12 @@
 .user-details{
  padding-left: 15px;
  padding-right: 15px;
+}
+
+.urgent {
+  color: red;
+  text-transform: uppercase;
+  border-bottom: 1px solid red;
 }
 
 .show-links {

@@ -36,13 +36,19 @@
         <%= "No" %>
         <% end %>
       </p>
+      <p> <strong> Classes I teach:  </strong>
+        <% @user.subjects.each do |subject| %>
+          - <%= subject.name%>
+        <% end %>
+      </p>
       <p><strong>Address: </strong><%= @user.address%></p>
       <p><strong>Bio: </strong> <%= @user.bio%></p>
     </div>
 
     <!--  links to be added: add a class, edit settings -->
     <div class="col-xs-12 text-center">
-      <p><%=link_to 'View classes', lessons_path(:show => "Open"), class:"dark-button" %> </p>
+      <p><%=link_to 'View classes', lessons_path(show: "Open"), class:"dark-button" %> </p>
+      <p><%=link_to 'Request a sub', new_lesson_path, class:"dark-button" %> </p>
       <% if policy(@user).edit? %>
       <p><%=link_to 'Edit profile page', edit_user_path %> </p>
       <% end %>

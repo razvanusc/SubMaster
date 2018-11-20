@@ -1,15 +1,21 @@
 <%= render "shared/navbar" %>
 
-<div class="application-container-light">
-  <div class="container text-center">
+<div class="application-container-dark">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 text-left">
+        <h2 class="text-center">Confirm Sub Teacher</h2>
 
-    <h2>Lesson bookings</h2>
-    <p> Class: <strong> <%= @booking.lesson.description %> </strong> </p>
-    <p> Owner: <strong> <%= @booking.user.first_name %>
-      <%= @booking.user.last_name %> </strong></p>
-      <%= simple_form_for([@lesson, @booking]) do |f| %>
-       <%= f.input :status, collection: Booking.statuses.keys %>
-       <%= f.submit "Update booking"%>
-     <% end %>
+        <p> <label> Class: </label><p>
+        <p> <strong> <%= @booking.lesson.description %></strong></p>
+        <p> <label>Requesting teacher: </label> <p>
+        <p> <strong> <%= @booking.user.first_name %> <%= @booking.user.last_name %> </strong></p>
+        <%= simple_form_for([@lesson, @booking]) do |f| %>
+          <%= f.input :status, collection: Booking.statuses.keys %>
+
+         <p class="text-center"> <%= f.submit "Update status", class:"login-btn"%> </p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
