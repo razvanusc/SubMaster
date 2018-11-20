@@ -27,9 +27,13 @@
   min-width: 375px;
   max-width: 750px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 !important;
   display: flex;
   flex-direction: column;
+}
+
+.container-padding {
+  padding: 15px;
 }
 
 .container-fluid {

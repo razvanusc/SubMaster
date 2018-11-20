@@ -1,28 +1,26 @@
 <%= render 'shared/navbar' %>
 <div class="application-container-dark">
-  <div class="wrapper-dark">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12 text-center">
+  <div class="container container-padding">
+    <div class="row">
+      <div class="col-xs-12 text-center">
 
-          <%= simple_form_for(@lesson) do |f| %>
-            <label>Start Date</label>
-            <div class="new-date">
-              <%= f.date_field :start_time, class: "date-field" %>
-            </div>
-            <label>Start Time</label>
-            <div class="new-time">
-              <%= f.time_field :start_time, class: "time-field" %>
-            </div>
-            <%= f.input :duration %>
-            <%= f.input :price %>
-            <%= f.input :address %>
-            <%= f.input :description %>
-            <%= f.input :subject_id, collection: @subjects %>
-            <%= f.submit class:"login-btn" %>
-          <% end %>
+        <%= simple_form_for(@lesson) do |f| %>
+          <label>Start Date</label>
+          <div class="new-date">
+            <%= f.date_field :start_time, class: "date-field" %>
+          </div>
+          <label>Start Time</label>
+          <div class="new-time">
+            <%= f.time_field :start_time, class: "time-field" %>
+          </div>
+          <%= f.input :duration %>
+          <%= f.input :price %>
+          <%= f.input :address %>
+          <%= f.input :description %>
+          <%= f.input :subject_id, collection: @subjects %>
+          <%= f.submit class:"login-btn" %>
+        <% end %>
 
-        </div>
       </div>
     </div>
   </div>
