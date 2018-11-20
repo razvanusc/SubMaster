@@ -37,7 +37,8 @@ user1 = User.create!(email: "marcusp@gmail.com",
     instagram_url: "instagram.com",
     available: true,
     address: "Amsterdam",
-    subjects: [subject_yoga, subject_pliates, subject_aerobic])
+    subjects: [subject_yoga, subject_pliates, subject_aerobic],
+    remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542718356/black-and-white-boy-casual-555790.jpg")
 
 user2 = User.create!(email: "kyrillr@gmail.com",
     password: "123secret",
@@ -51,7 +52,8 @@ user2 = User.create!(email: "kyrillr@gmail.com",
     instagram_url: "instagram.com",
     available: true,
     address: "Eindhoven",
-    subjects: [subject_bodybalance, subject_boxing, subject_dance])
+    subjects: [subject_bodybalance, subject_boxing, subject_dance],
+    remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542718570/adult-beard-boy-220453.jpg")
 
 user3 = User.create!(email: "emmiep@gmail.com",
     password: "123secret",
@@ -67,7 +69,8 @@ user3 = User.create!(email: "emmiep@gmail.com",
     instagram_url: "instagram.com",
     available: true,
     address: "Amsterdam",
-    subjects: [subject_dance, subject_kickboxing, subject_zumba])
+    subjects: [subject_dance, subject_kickboxing, subject_zumba],
+    remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542718572/actor-adult-autumn-1043471.jpg")
 
 user4 = User.create!(email: "jorinep@gmail.com",
     password: "123secret",
@@ -80,7 +83,8 @@ user4 = User.create!(email: "jorinep@gmail.com",
     instagram_url: "instagram.com",
     available: true,
     address: "Utrecht",
-    subjects: [subject_zumba, subject_yoga, subject_boxing])
+    subjects: [subject_zumba, subject_yoga, subject_boxing],
+    remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542718590/actor-adult-beard-1040880.jpg")
 
 user5 = User.create!(email: "marcel@gmail.com",
     password: "123secret",
@@ -94,7 +98,8 @@ user5 = User.create!(email: "marcel@gmail.com",
     instagram_url: "instagram.com",
     available: true,
     address: "Amsterdam",
-    subjects: [subject_yoga, subject_bodybalance, subject_pliates])
+    subjects: [subject_yoga, subject_bodybalance, subject_pliates],
+    remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542718716/adult-baseball-cap-beard-1484793.jpg")
 
 user6 = User.create!(email: "kareng@gmail.com",
     password: "123secret",
@@ -109,7 +114,8 @@ user6 = User.create!(email: "kareng@gmail.com",
     instagram_url: "instagram.com",
     available: false,
     address: "Eindhoven",
-    subjects: [subject_pliates, subject_dance, subject_kickboxing])
+    subjects: [subject_pliates, subject_dance, subject_kickboxing],
+    remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542718607/attractive-beautiful-beauty-1310518.jpg")
 
 
 

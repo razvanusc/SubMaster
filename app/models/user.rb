@@ -6,16 +6,9 @@ class User < ApplicationRecord
   has_many :user_subjects, dependent: :delete_all
   has_many :bookings, dependent: :delete_all
   has_many :subjects, through: :user_subjects
-  after_create :send_welcome_email
 
   mount_uploader :photo, PhotoUploader
 
   serialize :weekday_preference
   serialize :daytime_preference
-
-  private
-
-  def send_welcome_email
-    UserMailer.welcome(self).deliver_now
-  end
 end

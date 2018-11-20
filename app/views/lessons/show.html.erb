@@ -1,3 +1,5 @@
+<% content_for :meta_title, "#{@lesson.description} is on #{DEFAULT_META["meta_product_name"]}" %>
+
 <%= render 'shared/navbar' %>
 <div class="application-container-light">
   <div class="container show-container">
@@ -13,7 +15,7 @@
 
   <div class="show-content show-content user-show-content text-left">
     <p><strong> <%= @lesson.urgent %> </strong> </p>
-    <p><strong>Date: </strong> <%= @lesson.start_time.strftime("%H:%M") %></p>
+    <p><strong>Date: </strong> <%= @lesson.start_date.strftime("%B %d, %Y") %></p>
     <p><strong>Time: </strong> <%= @lesson.start_time.strftime("%H:%M") %></p>
     <p><strong>Duration: </strong><%= @lesson.duration %> min. </p>
     <p><strong>Compensation: </strong><%= @lesson.price %> € </p>
@@ -35,6 +37,7 @@
   </div>
 
   <div class="col-xs-12 text-center">
+
 
     <% if @lesson.user != current_user && @lesson.bookings.count < 3 %>
       <p> <%= link_to "Sub this class", new_lesson_booking_path(@lesson), class:"dark-button"%> </p>

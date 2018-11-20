@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
 
   def new
     @lesson = Lesson.find(params[:lesson_id])
-    @booking = Booking.new
+    @booking = Booking.new(lesson: @lesson)
     authorize @booking
   end
 
