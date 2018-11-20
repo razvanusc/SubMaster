@@ -36,3 +36,11 @@
 #search-bar {
   color: $darkblue;
 }
+
+#myDIV {
+  display: none;
+}
+
+#myDIV.shown {
+  display: block;
+}

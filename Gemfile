@@ -22,6 +22,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'pg_search'
 gem "geocoder"
 gem "pundit"
+gem "letter_opener", group: :development
 
 group :development do
   gem 'web-console', '>= 3.3.0'
