@@ -7,14 +7,12 @@
         <%= simple_form_for(@lesson) do |f| %>
           <label>Start Date</label>
             <div class="new-date">
-              <%= f.date_field :start_time, class: "date-field" %>
+              <%= f.date_field :start_date, class: "date-field" %>
             </div>
           <label>Start Time</label>
             <div class="new-time">
               <%= f.time_field :start_time, class: "time-field" %>
             </div>
-          <%= f.date_field :start_time %>
-          <%= f.time_field :start_time %>
           <%= f.input :duration %>
           <%= f.input :price %>
           <%= f.input :address %>
