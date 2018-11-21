@@ -3,7 +3,6 @@ class Lesson < ApplicationRecord
   belongs_to :subject
   has_many :bookings, dependent: :delete_all
 
-  validates :price, presence: true
   validates :description, presence: true
   validates :address, presence: true
   validates :duration, presence: true

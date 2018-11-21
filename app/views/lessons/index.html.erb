@@ -62,54 +62,53 @@
           <% end %>
       </div>
     </div>
-
-    <!-- Cards -->
-    <div class="row">
-      <div class="long-card-container">
-        <% @lessons.each do |lesson| %>
-          <div class="long-card">
-          <%= link_to lesson_path(lesson) do %>
-            <div class= "long-card-img">
-              <% if lesson.subject.name == "Crossfit" %>
-              <%= image_tag "crossfit.jpg", width:130, height:80, background:"center" %>
-              <% elsif lesson.subject.name == "Zumba" %>
-              <%= image_tag "zumba.jpg", width:130, height:80, background:"center" %>
-              <% elsif lesson.subject.name == "Yoga" %>
-              <%= image_tag "yoga.jpg", width:130, height:80, background:"center" %>
-              <% elsif lesson.subject.name == "Pilates" %>
-              <%= image_tag "pilates.jpg", width:130, height:80, background:"center" %>
-              <% elsif lesson.subject.name == "Aerobic" %>
-              <%= image_tag "aerobic.jpg", width:130, height:80, background:"center" %>
-              <% elsif lesson.subject.name == "Body Balance" %>
-              <%= image_tag "bodybalance.jpg", width:130, height:80, background:"center" %>
-              <% elsif lesson.subject.name == "Boxing" %>
-              <%= image_tag "boxing.jpg", width:130, height:80, background:"center" %>
-              <% elsif lesson.subject.name == "Dance" %>
-              <%= image_tag "dance.jpg", width:130, height:80, background:"center" %>
-              <% elsif lesson.subject.name == "Kick Boxing" %>
-              <%= image_tag "kickboxing.jpg", width:130, height:80, background:"center" %>
-              <% elsif lesson.subject.name == "Pole Dance" %>
-              <%= image_tag "poledance.jpg", width:130, height:80, background:"center" %>
-              <% end %>
-                <div class="long-card-text">
-                  <p class="long-card-date"><%= lesson.start_time.strftime("%d-%b") %></p>
-                  <p class="long-card-day"><%= lesson.start_time.strftime("%a") %></p>
-                  <p class="long-card-time"><%= lesson.start_time.strftime("%H:%M") %></p>
-                </div>
-            </div>
-          <% end %>
-            <div class="long-card-body">
-              <p class="description"><%= lesson.subject.name.first(8)%></p>
-              <p class="address"><%= lesson.address.first(9) %></p>
-              <% if lesson.user %>
-                <% if lesson.user != current_user %>
-                  <%=link_to user_path(lesson.user) do %>
-                    <p>by <%= lesson.user.first_name %> <%= lesson.user.last_name %></p>
-                  <% end %>
-                 <% else %>
-                  <%=link_to user_path(lesson.user) do %>
-                    <p>My request</p>
-                  <% end %>
+  <div class="row">
+  <div class="long-card-container">
+      <% @lessons.each do |lesson| %>
+        <div class="long-card">
+        <%= link_to lesson_path(lesson) do %>
+          <div class= "long-card-img">
+            <% if lesson.subject.name == "Crossfit" %>
+            <%= image_tag "crossfit.jpg", width:130, height:80, background:"center" %>
+            <% elsif lesson.subject.name == "Zumba" %>
+            <%= image_tag "zumba.jpg", width:130, height:80, background:"center" %>
+            <% elsif lesson.subject.name == "Yoga" %>
+            <%= image_tag "yoga.jpg", width:130, height:80, background:"center" %>
+            <% elsif lesson.subject.name == "Pilates" %>
+            <%= image_tag "pilates.jpg", width:130, height:80, background:"center" %>
+            <% elsif lesson.subject.name == "Aerobic" %>
+            <%= image_tag "aerobic.jpg", width:130, height:80, background:"center" %>
+            <% elsif lesson.subject.name == "Body Balance" %>
+            <%= image_tag "bodybalance.jpg", width:130, height:80, background:"center" %>
+            <% elsif lesson.subject.name == "Boxing" %>
+            <%= image_tag "boxing.jpg", width:130, height:80, background:"center" %>
+            <% elsif lesson.subject.name == "Dance" %>
+            <%= image_tag "dance.jpg", width:130, height:80, background:"center" %>
+            <% elsif lesson.subject.name == "Kick Boxing" %>
+            <%= image_tag "kickboxing.jpg", width:130, height:80, background:"center" %>
+            <% elsif lesson.subject.name == "Pole Dance" %>
+            <%= image_tag "poledance.jpg", width:130, height:80, background:"center" %>
+            <% elsif lesson.subject.name == "Other" %>
+            <%= image_tag "other.jpg", width:130, height:80, background:"center" %>
+            <% end %>
+              <div class="long-card-text">
+                <p class="long-card-date"><%= lesson.start_date.strftime("%d-%b") %></p>
+                <p class="long-card-day"><%= lesson.start_time.strftime("%a") %></p>
+                <p class="long-card-time"><%= lesson.start_time.strftime("%H:%M") %></p>
+              </div>
+          </div>
+        <% end %>
+          <div class="long-card-body">
+            <p class="description"><%= lesson.subject.name.first(8)%></p>
+            <p class="address"><%= lesson.address.first(9) %></p>
+            <% if lesson.user %>
+              <% if lesson.user != current_user %>
+                <%=link_to user_path(lesson.user) do %>
+                  <p>by <%= lesson.user.first_name %> <%= lesson.user.last_name %></p>
+                <% end %>
+               <% else %>
+                <%=link_to user_path(lesson.user) do %>
+                  <p>My request</p>
                 <% end %>
               <% end %>
 

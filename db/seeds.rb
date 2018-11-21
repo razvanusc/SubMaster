@@ -23,6 +23,7 @@ subject_dance = Subject.create(name: "Dance")
 subject_kickboxing = Subject.create(name: "Kick Boxing")
 subject_poledance = Subject.create(name: "Pole Dance")
 subject_zumba = Subject.create(name: "Zumba")
+subject_other = Subject.create(name: "Other")
 
 
 user1 = User.create!(email: "marcusp@gmail.com",
