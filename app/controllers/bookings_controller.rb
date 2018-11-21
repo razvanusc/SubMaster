@@ -1,7 +1,10 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = policy_scope(Booking).all
-
+    if params[:lesson_id]
+      @bookings = policy_scope(Booking).where(lesson_id: params[:lesson_id])
+    else
+      @bookings = policy_scope(Booking).all
+    end
     # if params[:show]
     #   @bookings = @bookings.where(status: params[:show])
     # else
@@ -24,8 +27,8 @@ class BookingsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @booking = Booking.new
     @booking.user = current_user
-    authorize @booking
     @booking.lesson = @lesson
+    authorize @booking
     @booking.status = "Pending"
 
     if @booking.save
@@ -50,7 +53,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.update(booking_params)
-    redirect_to bookings_path
+    redirect_to lessons_path
   end
 
   private

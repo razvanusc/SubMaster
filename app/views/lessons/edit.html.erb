@@ -2,21 +2,17 @@
 <div class="application-container-dark">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 text-center">
+      <div class="col-xs-12 text-left">
 
         <%= simple_form_for(@lesson) do |f| %>
-          <label>Start Date</label>
-            <div class="new-date">
-              <%= f.date_field :start_date, class: "date-field" %>
-            </div>
-          <label>Start Time</label>
-            <div class="new-time">
-              <%= f.time_field :start_time, class: "time-field" %>
-            </div>
+          <p> <label>Start Date (eg. 13/03/2018) </label> </p>
+          <p> <%= f.date_field :start_date, class:"form-control" %> </p>
+          <p> <label>Start Time  (eg. 14:30)</label></p>
+            <%= f.time_field :start_time, class:"form-control"%>
           <%= f.input :duration %>
           <%= f.input :price %>
           <%= f.input :address %>
-          <%= f.input :description %>
+          <%= f.input :description, as: :text %>
           <%= f.input :subject_id, collection: @subjects %>
           <%= f.submit class: "login-btn" %>
         <% end %>

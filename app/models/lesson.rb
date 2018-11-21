@@ -17,17 +17,29 @@ class Lesson < ApplicationRecord
   end
 
   def urgent
-    time = (start_time - Time.now) / 3600
-    return "URGENT!!!" if time < 24
+    time = (start_date - Time.now) / 3600
+    return "URGENT Request!" if time < 48
   end
 
   def self.future_lessons
-    where('start_time > ?', Time.zone.now)
+    where('start_date > ?', Time.zone.now)
   end
 
   def self.preferences(user)
     where('address = ?', user.address)
     .where('ARRAY[?]::integer[] @> ARRAY[subject_id]::integer[]', user.subject_ids)
+  end
+
+  def can_be_subbed_by?(subber)
+    Open? && user != subber
+  end
+
+  def can_be_managed_by?(requester)
+    Pending? && user == requester
+  end
+
+  def full?
+    bookings.count >= 3
   end
 
   include PgSearch

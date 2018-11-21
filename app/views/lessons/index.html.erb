@@ -3,46 +3,46 @@
 <div class="application-container-light">
   <div class="container">
       <!-- Header 1 -->
+    <div class="row">
+      <div class="col-xs-6 text-center index-header index-left <%= "active" unless params[:user_id].present? %>">
+        <%= link_to "Sub a class", lessons_path%>
+      </div>
+      <div class="col-xs-6 text-center index-header index-right <%= "active" if params[:user_id].present? %>">
+        <%= link_to "Your requests", user_lessons_path(@user)%>
+      </div>
+    </div>
+
+      <!-- Header 2 with conditional -->
+    <% if params[:user_id] %>
       <div class="row">
-        <div class="col-xs-6 text-center index-header index-left <%= "active" unless params[:user_id].present? %>">
-          <%= link_to "Sub a class", lessons_path%>
+        <div class="col-xs-4 text-center index-header index-left <%= "active" if @show == "Open" %>">
+          <%= link_to "Open", user_lessons_path(@user, show:"Open")%>
         </div>
-        <div class="col-xs-6 text-center index-header index-right <%= "active" if params[:user_id].present? %>">
-          <%= link_to "Your requests", user_lessons_path(@user)%>
+        <div class="col-xs-4 text-center index-header index-middle <%= "active" if @show == "Pending" %>">
+          <%= link_to "Pending", user_lessons_path(@user, show: "Pending")%>
+        </div>
+        <div class="col-xs-4 text-center index-header index-right <%= "active" if @show == "Confirmed" %>">
+          <%= link_to "Covered", user_lessons_path(@user, show:"Confirmed")%>
         </div>
       </div>
 
-      <!-- Header 2 with conditional -->
+    <% else %>
 
-      <% if params[:user_id] %>
-        <div class="row">
-          <div class="col-xs-4 text-center index-header index-left <%= "active" if @show == "Open" %>">
-            <%= link_to "Open", user_lessons_path(@user, show:"Open")%>
-          </div>
-          <div class="col-xs-4 text-center index-header index-middle <%= "active" if @show == "Pending" %>">
-            <%= link_to "Pending", user_lessons_path(@user, show: "Pending")%>
-          </div>
-          <div class="col-xs-4 text-center index-header index-right <%= "active" if @show == "Confirmed" %>">
-            <%= link_to "Covered", user_lessons_path(@user, show:"Confirmed")%>
-          </div>
+      <div class="row">
+        <div class="col-xs-4 text-center index-header index-left <%= "active" if @show == "Open" %>">
+          <%= link_to "Open", lessons_path(@lesson, show:"Open")%>
         </div>
-
-      <% else %>
-
-        <div class="row">
-          <div class="col-xs-4 text-center index-header index-left <%= "active" if @show == "Open" %>">
-            <%= link_to "Open", lessons_path(@lesson, show:"Open")%>
-          </div>
-          <div class="col-xs-4 text-center index-header index-middle <%= "active" if @show == "Pending" %>">
-            <%= link_to "Pending", lessons_path(@lesson, show:"Pending")%>
-          </div>
-          <div class="col-xs-4 text-center index-header index-right <%= "active" if @show == "Confirmed" %>">
-            <%= link_to "Covered", lessons_path(@lesson, show:"Confirmed")%>
-          </div>
+        <div class="col-xs-4 text-center index-header index-middle <%= "active" if @show == "Pending" %>">
+          <%= link_to "Pending", lessons_path(@lesson, show:"Pending")%>
         </div>
+        <div class="col-xs-4 text-center index-header index-right <%= "active" if @show == "Confirmed" %>">
+          <%= link_to "Covered", lessons_path(@lesson, show:"Confirmed")%>
+        </div>
+      </div>
+    <% end %>
 
-      <% end %>
-
+    <!-- Search bar -->
+    <div class="row">
       <div id="myDIV">
         <% query_path = nil %>
         <% if params[:user_id] %>
@@ -52,17 +52,17 @@
         <% end %>
 
         <%= form_tag query_path, method: :get do %>
-        <% if params[:show] %>
-        <%= hidden_field_tag(:show, params[:show]) %>
-        <% end %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a lesson"
-        %>
-      <% end %>
+          <% if params[:show] %>
+            <%= hidden_field_tag(:show, params[:show]) %>
+          <% end %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "text-center",
+            placeholder: "Find a lesson"%>
+          <% end %>
       </div>
-
+    </div>
+  <div class="row">
   <div class="long-card-container">
       <% @lessons.each do |lesson| %>
         <div class="long-card">
@@ -111,22 +111,21 @@
                   <p>My request</p>
                 <% end %>
               <% end %>
-            <% end %>
 
-            <p class="cost"><%= lesson.price %> €</p>
+              <p class="cost"><%= lesson.price %> €</p>
+            </div>
+            <div class="long-card-right">
+              <p class="status"><%= lesson.status %></p>
+              <p class="duration"><%= lesson.duration %> min.</p>
+            </div>
           </div>
-          <div class="long-card-right">
-            <p class="status"><%= lesson.status %></p>
-            <p class="duration"><%= lesson.duration %> min.</p>
+        <% end %>
+          <div class="row">
+            <div class="col-xs-12 text-center">
+              <p> <%= link_to "Request a sub", new_lesson_path, class:"dark-button"%> </p>
+              <p><%= link_to "Edit settings", edit_user_path(current_user), class:"dark-button"%> </p>
+            </div>
           </div>
-        </div>
-      <% end %>
-
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <p> <%= link_to "Request a sub", new_lesson_path, class:"dark-button"%> </p>
-          <p><%= link_to "Edit settings", edit_user_path(current_user), class:"dark-button"%> </p>
-        </div>
       </div>
     </div>
   </div>

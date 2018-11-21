@@ -14,7 +14,7 @@
   </div>
 
   <div class="show-content show-content user-show-content text-left">
-    <p><strong> <%= @lesson.urgent %> </strong> </p>
+    <p><strong> <span class="urgent"><%= @lesson.urgent %> </span></strong> </p>
     <p><strong>Date: </strong> <%= @lesson.start_date.strftime("%B %d, %Y") %></p>
     <p><strong>Time: </strong> <%= @lesson.start_time.strftime("%H:%M") %></p>
     <p><strong>Duration: </strong><%= @lesson.duration %> min. </p>
@@ -40,15 +40,19 @@
 
   <div class="col-xs-12 text-center">
 
+    <p><%=link_to 'View classes', lessons_path(show: "Open"), class:"dark-button" %> </p>
 
-    <% if @lesson.user != current_user && @lesson.bookings.count < 3 %>
-      <p> <%= link_to "Sub this class", new_lesson_booking_path(@lesson), class:"dark-button"%> </p>
-    <% elsif @lesson.user != current_user && @lesson.bookings.count < 3 %>
-      <p><%= "Sorry, this class has already three bookings, try to sub another class! "%> </p>
-    <% else %>
-        <p> <%= link_to "Manage bookings", bookings_path, class:"dark-button"%> </p>
-        <p><%= link_to "Edit this class", edit_lesson_path(@lesson)%> </p>
+    <% if @lesson.can_be_subbed_by?(current_user) %>
+      <% if @lesson.full? %>
+        <p><%= "Sorry, this class has already three bookings, try to sub another class! "%> </p>
+      <% else %>
+        <p> <%= link_to "Sub this class", new_lesson_booking_path(@lesson), class:"dark-button"%> </p>
+      <% end %>
+    <% elsif @lesson.can_be_managed_by?(current_user) %>
+      <p><%= link_to "Manage bookings", lesson_bookings_path(@lesson), class:"dark-button"%> </p>
+      <p><%= link_to "Edit this class", edit_lesson_path(@lesson)%> </p>
     <% end %>
+
   </div>
 
 <div
