@@ -92,6 +92,9 @@
               <% elsif lesson.subject.name == "Other" %>
                 <%= image_tag "other.jpg", width:130, height:80, background:"center" %>
               <% end %>
+              <% if lesson.urgent == "URGENT Request!" %>
+                <div class="long-card-urgent-sign"></div>
+              <% end %>
                 <div class="long-card-text">
                   <p class="long-card-date"><%= lesson.start_date.strftime("%d-%b") %></p>
                   <p class="long-card-day"><%= lesson.start_time.strftime("%a") %></p>
@@ -130,6 +133,5 @@
           </div>
       </div>
     </div>
-
   </div>
 </div>
