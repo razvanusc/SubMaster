@@ -74,6 +74,7 @@ class LessonsController < ApplicationController
   def edit
     @lesson = Lesson.find(params[:id])
     authorize @lesson
+    @subjects = Subject.all
   end
 
   def update

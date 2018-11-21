@@ -18,7 +18,9 @@
     <p><strong>Date: </strong> <%= @lesson.start_date.strftime("%B %d, %Y") %></p>
     <p><strong>Time: </strong> <%= @lesson.start_time.strftime("%H:%M") %></p>
     <p><strong>Duration: </strong><%= @lesson.duration %> min. </p>
+    <% if @lesson.price %>
     <p><strong>Compensation: </strong><%= @lesson.price %> € </p>
+    <% end %>
     <p><strong>Address: </strong><%= @lesson.address %> </p>
     <p><strong>Requesting teacher: </strong>
 

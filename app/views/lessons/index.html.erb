@@ -88,6 +88,8 @@
             <%= image_tag "kickboxing.jpg", width:130, height:80, background:"center" %>
             <% elsif lesson.subject.name == "Pole Dance" %>
             <%= image_tag "poledance.jpg", width:130, height:80, background:"center" %>
+            <% elsif lesson.subject.name == "Other" %>
+            <%= image_tag "other.jpg", width:130, height:80, background:"center" %>
             <% end %>
               <div class="long-card-text">
                 <p class="long-card-date"><%= lesson.start_date.strftime("%d-%b") %></p>
