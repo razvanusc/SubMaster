@@ -54,7 +54,7 @@ user2 = User.create!(email: "kyrillr@gmail.com",
     available: true,
     address: "Eindhoven",
     subjects: [subject_bodybalance, subject_boxing, subject_dance],
-    remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542718570/adult-beard-boy-220453.jpg")
+    remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542801848/andy-lee-642320-unsplash.jpg")
 
 user3 = User.create!(email: "emmiep@gmail.com",
     password: "123secret",
@@ -71,7 +71,7 @@ user3 = User.create!(email: "emmiep@gmail.com",
     available: true,
     address: "Amsterdam",
     subjects: [subject_dance, subject_kickboxing, subject_zumba],
-    remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542718572/actor-adult-autumn-1043471.jpg")
+    remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542801917/s-a-r-a-h-s-h-a-r-p-757806-unsplash.jpg")
 
 user4 = User.create!(email: "jorinep@gmail.com",
     password: "123secret",
@@ -87,9 +87,9 @@ user4 = User.create!(email: "jorinep@gmail.com",
     subjects: [subject_zumba, subject_yoga, subject_boxing],
     remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542718590/actor-adult-beard-1040880.jpg")
 
-user5 = User.create!(email: "marcel@gmail.com",
+user5 = User.create!(email: "marcelap@gmail.com",
     password: "123secret",
-    first_name: "Marcel",
+    first_name: "Marcela",
     last_name: "Peters",
     phone_number: "0680 431843",
     bio: "I used to be a banker and since my last burn out, I have changed my lifestyle.
@@ -100,7 +100,7 @@ user5 = User.create!(email: "marcel@gmail.com",
     available: true,
     address: "Amsterdam",
     subjects: [subject_yoga, subject_bodybalance, subject_pliates],
-    remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542718716/adult-baseball-cap-beard-1484793.jpg")
+    remote_photo_url: "https://res.cloudinary.com/ddxecpwob/image/upload/v1542802029/8782fc8220561fe4a7dddb07aa15525a--face-reference-female-faces.jpg")
 
 user6 = User.create!(email: "kareng@gmail.com",
     password: "123secret",

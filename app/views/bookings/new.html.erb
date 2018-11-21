@@ -3,13 +3,37 @@
   <div class="container show-container">
 
     <div class="big-card-image">
-      <div class="col-xs-12 text-center card-header">
-        <p><%= @lesson.subject.name %></p>
-      </div>
-      <div class="col-xs-12 text-center card-bottom">
-        <p><%= @lesson.status %></p>
-      </div>
+    <div class="col-xs-12 text-center card-header">
+      <p><%= @lesson.subject.name%></p>
     </div>
+
+      <% if @lesson.subject.name == "Crossfit" %>
+        <%= image_tag "crossfit.jpg", width: "100%",background:"center" %>
+      <% elsif @lesson.subject.name == "Zumba" %>
+        <%= image_tag "zumba.jpg", width: "100%",background:"center" %>
+      <% elsif @lesson.subject.name == "Yoga" %>
+        <%= image_tag "yoga.jpg", width: "100%",background:"center" %>
+      <% elsif @lesson.subject.name == "Pilates" %>
+        <%= image_tag "pilates.jpg", width: "100%",background:"center" %>
+      <% elsif @lesson.subject.name == "Aerobic" %>
+        <%= image_tag "aerobic.jpg", width: "100%",background:"center" %>
+      <% elsif @lesson.subject.name == "Body Balance" %>
+        <%= image_tag "bodybalance.jpg", width: "100%",background:"center" %>
+      <% elsif @lesson.subject.name == "Boxing" %>
+        <%= image_tag "boxing.jpg", width: "100%",background:"center" %>
+      <% elsif @lesson.subject.name == "Dance" %>
+        <%= image_tag "dance.jpg", width: "100%",background:"center" %>
+      <% elsif @lesson.subject.name == "Kick Boxing" %>
+        <%= image_tag "kickboxing.jpg", width: "100%",background:"center" %>
+      <% elsif @lesson.subject.name == "Pole Dance" %>
+        <%= image_tag "poledance.jpg", width: "100%",background:"center" %>
+      <% elsif @lesson.subject.name == "Other" %>
+        <%= image_tag "other.jpg", width: "100%",background:"center" %>
+      <% end %>
+      <div class="col-xs-12 text-center card-bottom">
+        <p><%= @lesson.status%></p>
+      </div>
+  </div>
 
     <div class="col-xs-12  show-content user-show-content text-left">
       <h3 class="text-center">*Please confirm to sub the following class:</h3>
