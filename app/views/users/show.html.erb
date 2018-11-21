@@ -3,7 +3,7 @@
   <div class="container show-container">
 
     <div class="big-card-image">
-      <div class="col-xs-12 text-center card-header">
+      <div class="text-center card-header">
         <% if @user.first_name  || @user.last_name %>
           <p><%= @user.first_name%> <%= @user.last_name%></p>
         <% else %>
@@ -11,7 +11,7 @@
         <% end %>
       </div>
       <%= cl_image_tag(current_user.photo.present? ? current_user.photo : "avatar_placeholder", height: 150, width: 150, crop: :thumb, gravity: :face, class: "img-circle") %>
-      <div class="col-xs-12 text-center card-bottom">
+      <div class=" text-center card-bottom">
         <p>Details</p>
       </div>
     </div>
