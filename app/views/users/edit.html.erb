@@ -16,11 +16,6 @@
               <%= f.input :available %>
               <%= f.input :address %>
               <%= f.input :subject_ids, as: :check_boxes, collection: Subject.all %>
-              <%= f.input :weekday_preference, as: :check_boxes, collection: [['Monday', 1],
-              ['Tuesday', 2], ['Wednesday', 3], ['Thursday', 4], ['Friday', 5], ['Saturday', 6],
-              ['Sunday', 7]] %>
-              <%= f.input :daytime_preference, as: :check_boxes, collection: [['Morning (6-12)', 1],
-              ['Afternoon (12-18)', 2], ['Evening (18-22)', 3]] %>
 
                <label class="login-btn "> Upload a photo
               <span style="display:none;">
