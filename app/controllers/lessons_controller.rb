@@ -7,7 +7,7 @@ class LessonsController < ApplicationController
       @user = User.find(params[:user_id])
     end
 
-    @lessons = policy_scope(Lesson).future_lessons.order('start_date DESC, start_time DESC')
+    @lessons = policy_scope(Lesson).future_lessons.order('start_date ASC, start_time ASC')
 
     if params[:user_id] && params[:query]
       @lessons = @lessons
