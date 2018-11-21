@@ -41,8 +41,7 @@
   <div class="col-xs-12 text-center">
 
     <p><%=link_to 'View classes', lessons_path(show: "Open"), class:"dark-button" %> </p>
-
-    <% if @lesson.can_be_subbed_by?(current_user) %>
+ <% if @lesson.can_be_subbed_by?(current_user) %>
       <% if @lesson.full? %>
         <p><%= "Sorry, this class has already three bookings, try to sub another class! "%> </p>
       <% else %>
@@ -50,8 +49,10 @@
       <% end %>
     <% elsif @lesson.can_be_managed_by?(current_user) %>
       <p><%= link_to "Manage bookings", lesson_bookings_path(@lesson), class:"dark-button"%> </p>
+    <% else %>
       <p><%= link_to "Edit this class", edit_lesson_path(@lesson)%> </p>
     <% end %>
+
 
   </div>
 
