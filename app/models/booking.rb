@@ -16,7 +16,11 @@ class Booking < ApplicationRecord
     if lesson.status != "Confirmed" && lesson.status != "Cancelled"
       lesson.update! status: status
     end
+    if status == "Confirmed"
+      lesson.bookings.where.not(id: id).destroy_all
+    end
   end
+
 
   # def max_3
   #   if booking.size > 3

@@ -7,7 +7,7 @@ class LessonsController < ApplicationController
       @user = User.find(params[:user_id])
     end
 
-    @lessons = policy_scope(Lesson).future_lessons
+    @lessons = policy_scope(Lesson).future_lessons.order('start_date DESC, start_time DESC')
 
     if params[:user_id] && params[:query]
       @lessons = @lessons
@@ -32,7 +32,7 @@ class LessonsController < ApplicationController
                    .where.not(user: @user)
                    .preferences(current_user)
       else
-      @lessons = @lessons.where.not(user: @user).preferences(current_user)
+        @lessons = @lessons.where.not(user: @user).preferences(current_user)
       end
     end
 
@@ -45,12 +45,12 @@ class LessonsController < ApplicationController
     authorize @lesson
     @lessons = Lesson.where.not(latitude: nil, longitude: nil)
 
-    @markers = @lessons.map do |lesson|
+    @markers = [
       {
-        lng: lesson.longitude,
-        lat: lesson.latitude
+        lng: @lesson.longitude,
+        lat: @lesson.latitude
       }
-    end
+    ]
   end
 
   def new
