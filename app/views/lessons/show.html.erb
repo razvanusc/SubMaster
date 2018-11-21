@@ -35,9 +35,11 @@
     <div class="col-xs-12 text-center card-bottom">
       <p><%= @lesson.status%></p>
     </div>
+    <% if @lesson.urgent %>
       <div class="col-xs-12 text-center card-urgent">
-      <p><%= @lesson.urgent%></p>
-    </div>
+        <p><%= @lesson.urgent%></p>
+      </div>
+    <% end %>
   </div>
 
   <div class="show-content show-content user-show-content text-left">
