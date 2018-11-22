@@ -86,21 +86,22 @@
       <h2> For teachers</h2>
       <p>Are you a dedicated teacher and passionate about your students? Do you want to leave your students in good hands when you are not able to teach yourself? We know, finding a substitue teacher through emails and whatsapp messages can be a confusing, sometimes stressful process. </p>
 
-      <p>To ease up the pain, we created SubMaster, where you can easily create an "open class" to which a substitute teacher can respond. You can see how many people your request will reach, you can see responses, and give your class to the teacher that suits the job the best. You can manage everything on one page so that you can focus on your students or on your personal matters while you are away. </p>
-      <p>It's so simple, so why not give it a try? </p>
+      <p>To ease up the pain, we created SubMaster, where you can easily create an "open class" to which a substitute teacher can respond. If you are in search for more teaching opportunities, you can set your preferences to see only relevant classes. You can manage everything on one page so that you can focus on your students or on your personal matters while you are away. </p>
+      <p>It is so simple, so why not give it a try? </p>
 
       <%= link_to "Sign Up", new_user_registration_path, class: "dark-button"%>
     </div>
     <div class="col-xs-12  col-md-6 text-center home-body" id="about">
       <h2> For businesses</h2>
-      <p>Studios, gyms and other businesses can have very different ways of handling the task of finding a substitute teacher in the absence of the fixed teacher. In our future plans, we would like to collaborate with studios and help streamlining their processes so they can not only make the subbing process more resourceful but also add value to the entire subbing process. We are thinking about: creating closed group of teachers per studio, giving recommendations for the best suiting teacher, show statistics to pinpoint issues. </p>
-      <p> If you have ideas about features you would like to see in our SubMaster app, you can also help us by filling in our short questionnaire. Our main goal is to build a useful app therefore your input is much appreciated. </p>
-      <%= link_to "Feedback", new_user_registration_path, class: "dark-button"%>
+      <p>Studios, gyms and other businesses have different ways of handling the task of finding a substitute teacher in the absence of the fixed teacher. </p>
+      <p> In our future plans, we would like to collaborate with studios and help streamlining their processes so they can not only make the subbing process more resourceful but also add value to the entire subbing process. We are thinking about: creating closed group of teachers per studio, giving recommendations for the best suiting teacher, show statistics to highlight trends. </p>
+      <p> If you have ideas about features you would like to see in our SubMaster app, you can also help us by filling in our short feedback form. Our main goal is to build a useful app therefore your input is much appreciated. </p>
+      <%= link_to "Feedback", "https://krystonen.typeform.com/to/JtFpkb", class: "dark-button"%>
     </div>
     <div class="col-xs-12 text-center home-body">
       <h2> Contact us</h2>
       <p>Do you have any questions about the app? We would like to hear them! Feel free to get in touch via email. </p>
-      <%= link_to "Email", new_user_registration_path, class: "dark-button"%>
+      <%= mail_to "info@submaster.club", "Email", class: "dark-button"%>
     </div>
   </div>
 

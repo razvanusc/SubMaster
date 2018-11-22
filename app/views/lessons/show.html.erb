@@ -6,7 +6,14 @@
 
   <div class="big-card-image">
     <div class="col-xs-12 text-center card-header">
-      <p><%= @lesson.subject.name%></p>
+      <p><%= @lesson.subject.name%>
+      <% if policy(@lesson.user).edit? %>
+          <%= link_to edit_lesson_path(@lesson) do %>
+            <i class="far fa-edit edit-icon"> </i>
+          <%end %>
+      <% end %></p>
+
+
     </div>
 
     <% if @lesson.subject.name == "Crossfit" %>
@@ -78,10 +85,8 @@
       <% end %>
     <% elsif @lesson.can_be_managed_by?(current_user) %>
       <p><%= link_to "Manage bookings", lesson_bookings_path(@lesson), class:"dark-button"%> </p>
-    <% else %>
-      <p><%= link_to "Edit this class", edit_lesson_path(@lesson)%> </p>
-    <% end %>
 
+    <% end %>
 
   </div>
 

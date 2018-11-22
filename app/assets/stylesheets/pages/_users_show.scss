@@ -19,10 +19,10 @@
   }
 
   .fas {
-    font-size: 20px;
+    font-size: 25px;
   }
   .fab {
-    font-size: 20px;
+    font-size: 25px;
   }
 }
 .user-show-icons {
@@ -30,6 +30,12 @@
     color: $orange;
   }
 }
+
+.edit-icon {
+  float: right;
+  font-size: 18px;
+}
+
 .user-show-content{
   padding: 10px 30px 10px 5px;
   display: flex;

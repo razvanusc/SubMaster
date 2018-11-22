@@ -105,17 +105,15 @@
             <div class="long-card-body">
               <p class="description"><%= lesson.subject.name.first(8)%></p>
               <p class="address"><%= lesson.address.first(9) %></p>
-              <% if lesson.user %>
                 <% if lesson.user != current_user %>
                   <%=link_to user_path(lesson.user) do %>
                     <p>by <%= lesson.user.first_name %> <%= lesson.user.last_name %></p>
                   <% end %>
+                <% else %>
+                  <%=link_to user_path(lesson.user) do %>
+                    <p>My request</p>
+                  <% end %>
                 <% end %>
-              <% else %>
-                <%=link_to user_path(lesson.user) do %>
-                  <p>My request</p>
-                <% end %>
-              <% end %>
               <p class="cost"><%= lesson.price %> €</p>
             </div>
             <div class="long-card-right">
