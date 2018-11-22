@@ -19,7 +19,7 @@
     <strong> <%= link_to root_path, class: "navbar-wagon-item navbar-wagon-brand logo" do %>
       <%= image_tag "logo1.png", height: 50 %>
     <% end %> </strong>
-  <% if current_page? ('/lessons')%>
+  <% if current_page?(controller: 'lessons', action: :index) %>
       <div class="navbar-wagon-item navbar-wagon-item-right">
       <button onclick="myFunction()", class="navbar-button"><i class="fas fa-search"></i></button>
       </div>
