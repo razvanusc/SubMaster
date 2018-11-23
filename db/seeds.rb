@@ -119,6 +119,7 @@ lesson1 = Lesson.create(start_time: DateTime.strptime("20:00", "%H:%M"),
     address: "Amsterdam",
     description: "Restorative evening class in a lovely downtown yoga studio. I'll send you all details in private. Full class with students of different levels.",
     subject: subject_yoga,
+    status: 3,
     user: user1)
 
 lesson2 = Lesson.create(start_time: DateTime.strptime("16:00", "%H:%M"),
@@ -153,36 +154,40 @@ lesson5 = Lesson.create(start_time: DateTime.strptime("09:00", "%H:%M"),
     duration: 80,
     price: 70,
     address: "Amsterdam",
-    description: "Morning Body Balance class for beginners needs a substitute teacher in Oost Amsterdam. I'll send the details in private.",
-    subject: subject_bodybalance,
+    description: "Morning Yoga class for beginners needs a substitute teacher in Oost Amsterdam. I'll send the details in private.",
+    subject: subject_yoga,
+    status: 0,
     user: user5)
 
 lesson6 = Lesson.create(start_time: DateTime.strptime("20:00", "%H:%M"),
     start_date: DateTime.strptime("11/26/2018", "%m/%d/%Y"),
     duration: 30,
     price: 20,
-    address: "Utrecht",
+    address: "Amsterdam",
     description: "Looking for a pilates teacher next Monday. Long term subsitution is possible for this class. More details in PM",
     subject: subject_pilates,
+    status: 1,
     user: user6)
 
 lesson7 = Lesson.create(start_time: DateTime.strptime("19:00", "%H:%M"),
     start_date: DateTime.strptime("11/27/2018", "%m/%d/%Y"),
     duration: 45,
     price: 30,
-    address: "Eindhoven",
+    address: "Amsterdam",
     description: "Pilates for beginners, looking for a certified pilates teacher for this class, focusing on core.",
     subject: subject_pilates,
+    status: 3,
     user: user1)
 
 lesson8 = Lesson.create(start_time: DateTime.strptime("17:00", "%H:%M"),
     start_date: DateTime.strptime("11/28/2018", "%m/%d/%Y"),
     duration: 65,
     price: 50,
-    address: "Utrecht",
-    description: "Looking for a substitute teacher for 10 year old kids (boys and girls) for a fun box class. Teachers with little teaching experience can be considered as well.",
-    subject: subject_boxing,
-    user: user2)
+    address: "Amsterdam",
+    description: "Looking for a substitute teacher for kids (yoga for a fun box class. Teachers with little teaching experience can be considered as well.",
+    subject: subject_yoga,
+    status: 0,
+    user: user5)
 
 lesson9 = Lesson.create(start_time: DateTime.strptime("18:00", "%H:%M"),
     start_date: DateTime.strptime("11/29/2018", "%m/%d/%Y"),
@@ -203,21 +208,23 @@ lesson10 = Lesson.create(start_time: DateTime.strptime("19:00", "%H:%M"),
     user: user4)
 
 lesson11 = Lesson.create(start_time: DateTime.strptime("21:00", "%H:%M"),
-    start_date: DateTime.strptime("11/26/2018", "%m/%d/%Y"),
+    start_date: DateTime.strptime("11/25/2018", "%m/%d/%Y"),
     duration: 90,
     price: 40,
     address: "Amsterdam",
-    description: "Advanced Pole Dance class needs a teacher asap for next week. Teacher should attend at least one class in our studio before committing to this class.",
-    subject: subject_poledance,
+    description: "Advanced Yoga class needs a teacher asap for next week. Teacher should attend at least one class in our studio before committing to this class.",
+    subject: subject_yoga,
+    status: 0,
     user: user5)
 
 lesson12 = Lesson.create(start_time: DateTime.strptime("10:30", "%H:%M"),
     start_date: DateTime.strptime("11/27/2018", "%m/%d/%Y"),
     duration: 60,
     price: 30,
-    address: "Utrecht",
+    address: "Amsterdam",
     description: "Energizing ashtanga yoga for students with all levels - focusing on Primary Series.",
     subject: subject_yoga,
+    status: 0,
     user: user6)
 
 lesson13 = Lesson.create(start_time: DateTime.strptime("19:30", "%H:%M"),
@@ -243,7 +250,7 @@ lesson15 = Lesson.create(start_time: DateTime.strptime("19:30", "%H:%M"),
     duration: 50,
     price: 30,
     address: "Eindhoven",
-    description: "Kick Boxing for girls,, big group 30 in heated studio.",
+    description: "Kick Boxing for girls, big group 30 in heated studio.",
     subject: subject_kickboxing,
     user: user3)
 
@@ -272,6 +279,7 @@ lesson18 = Lesson.create(start_time: DateTime.strptime("16:30", "%H:%M"),
     address: "Amsterdam",
     description: "Yin Yoga class needs a teacher, only teachers with Yin Yoga certificate should apply.",
     subject: subject_yoga,
+    status: 0,
     user: user2)
 
 lesson19 = Lesson.create(start_time: DateTime.strptime("17:00", "%H:%M"),
@@ -283,13 +291,14 @@ lesson19 = Lesson.create(start_time: DateTime.strptime("17:00", "%H:%M"),
     subject: subject_aerobic,
     user: user1)
 
-lesson20 = Lesson.create(start_time: DateTime.strptime("9:00", "%H:%M"),
-    start_date: DateTime.strptime("11/27/2018", "%m/%d/%Y"),
-    duration: 70,
+lesson20 = Lesson.create(start_time: DateTime.strptime("8:00", "%H:%M"),
+    start_date: DateTime.strptime("11/25/2018", "%m/%d/%Y"),
+    duration: 75,
     price: 40,
-    address: "Utrecht",
-    description: "Kick Boxing for professionals",
-    subject: subject_kickboxing,
+    address: "Amsterdam",
+    description: "I'm looking for someone to sub my morning vinyasa yoga class in a small downtown yoga studio, with regular students.",
+    status: 0,
+    subject: subject_yoga,
     user: user2)
 
 lesson21 = Lesson.create(start_time: DateTime.strptime("9:30", "%H:%M"),
@@ -308,6 +317,7 @@ lesson22 = Lesson.create(start_time: DateTime.strptime("9:30", "%H:%M"),
     address: "Amsterdam",
     description: "Morning Vinyasa Yoga for regular students, energizing challenging class.",
     subject: subject_yoga,
+    status: 1,
     user: user2)
 
 lesson23 = Lesson.create(start_time: DateTime.strptime("9:00", "%H:%M"),
@@ -315,8 +325,9 @@ lesson23 = Lesson.create(start_time: DateTime.strptime("9:00", "%H:%M"),
     duration: 60,
     price: 30,
     address: "Amsterdam",
-    description: "Crossfit class for beginners, you must challenge students. ",
-    subject: subject_crossfit,
+    description: "Restorative Yoga class in a start-up office, focusing on stretches.",
+    subject: subject_yoga,
+    status: 3,
     user: user5)
 
 lesson24 = Lesson.create(start_time: DateTime.strptime("8:00", "%H:%M"),
@@ -333,8 +344,9 @@ lesson25 = Lesson.create(start_time: DateTime.strptime("18:30", "%H:%M"),
     duration: 75,
     price: 30,
     address: "Amsterdam",
-    description: "Hatha Yoga for regular students needs a substitute teacher in Buddha Studio, no music for this class.",
+    description: "Vinyasa Yoga for beginner students - needs a substitute teacher in Buddha Studio, no music for this class.",
     subject: subject_yoga,
+    status: 1,
     user: user2)
 
 lesson26 = Lesson.create(start_time: DateTime.strptime("18:30", "%H:%M"),
@@ -342,8 +354,9 @@ lesson26 = Lesson.create(start_time: DateTime.strptime("18:30", "%H:%M"),
     duration: 60,
     price: 30,
     address: "Amsterdam",
-    description: "Hatha Yoga for regular students needs a substitute teacher in Buddha Studio, no music for this class.",
+    description: "Vinyasa Yoga for regular students in Buddha Studio, no music for this class.",
     subject: subject_yoga,
+    status: 3,
     user: user2)
 
 lesson27 = Lesson.create(start_time: DateTime.strptime("18:30", "%H:%M"),
@@ -351,8 +364,9 @@ lesson27 = Lesson.create(start_time: DateTime.strptime("18:30", "%H:%M"),
     duration: 60,
     price: 30,
     address: "Amsterdam",
-    description: "Hatha Yoga for regular students needs a substitute teacher in Buddha Studio, no music for this class.",
+    description: "Vinyasa Yoga for regular students needs a substitute teacher in Buddha Studio, no music for this class.",
     subject: subject_yoga,
+    status: 1,
     user: user2)
 
 lesson28 = Lesson.create(start_time: DateTime.strptime("18:30", "%H:%M"),
@@ -362,6 +376,7 @@ lesson28 = Lesson.create(start_time: DateTime.strptime("18:30", "%H:%M"),
     address: "Amsterdam",
     description: "Pilates class for beginners needs a substitute teacher in Studio Pilates, Amsterdam. You need to open and close the studio, more details in PM.",
     subject: subject_pilates,
+    status: 0,
     user: user5)
 
 lesson29 = Lesson.create(start_time: DateTime.strptime("18:30", "%H:%M"),
@@ -371,13 +386,25 @@ lesson29 = Lesson.create(start_time: DateTime.strptime("18:30", "%H:%M"),
     address: "Amsterdam",
     description: "Pilates class for beginners needs a substitute teacher in Studio Pilates, Amsterdam. You need to open and close the studio, more details in PM.",
     subject: subject_pilates,
+    status: 3,
     user: user5)
 
 lesson30 = Lesson.create(start_time: DateTime.strptime("18:30", "%H:%M"),
-    start_date: DateTime.strptime("12/16/2018", "%m/%d/%Y"),
+    start_date: DateTime.strptime("12/01/2018", "%m/%d/%Y"),
     duration: 60,
     price: 30,
     address: "Amsterdam",
     description: "Pilates class for beginners needs a substitute teacher in Studio Pilates, Amsterdam. You need to open and close the studio, more details in PM.",
     subject: subject_pilates,
+    status: 1,
     user: user5)
+
+lesson30 = Lesson.create(start_time: DateTime.strptime("18:30", "%H:%M"),
+    start_date: DateTime.strptime("12/01/2018", "%m/%d/%Y"),
+    duration: 60,
+    price: 30,
+    address: "Amsterdam",
+    description: "Pilates class for beginners needs a substitute teacher in Studio Pilates, Amsterdam. You need to open and close the studio, more details in PM.",
+    subject: subject_pilates,
+    status: 0,
+    user: user3)
