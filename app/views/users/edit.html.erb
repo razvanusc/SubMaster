@@ -15,7 +15,7 @@
               <%= f.input :instagram_url %>
               <%= f.input :available %>
               <%= f.input :address %>
-              <%= f.input :subject_ids, as: :check_boxes, collection: Subject.all %>
+              <%= f.input :subject_ids, as: :check_boxes, collection: Subject.all, label: "Classes" %>
 
                <label class="login-btn "> Upload a photo
               <span style="display:none;">
